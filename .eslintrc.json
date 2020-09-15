@@ -1,0 +1,74 @@
+{
+    "env": {
+      "commonjs": true,
+      "es6": true,
+      "browser": true,
+      "node": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 11,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "align-assignments"
+    ],
+    "rules": {
+        "@typescript-eslint/no-empty-interface": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+        "react/jsx-first-prop-new-line": [1, "multiline"],
+"react/jsx-max-props-per-line": [1,
+  {
+    "maximum": 1
+  }
+],
+        "react/jsx-indent-props": ["error", 4],
+        "react/jsx-indent": ["error", 4],
+        "react/prop-types": "off",
+        "import/prefer-default-export": "off",
+        "import/extensions": "off",
+        "import/no-extraneous-dependencies": "off",
+        "no-underscore-dangle": "off",
+        "no-param-reassign": "off",
+        "indent": ["error", 4],
+      "linebreak-style": [
+          "error",
+          "unix"
+      ],
+      "quotes": [
+          "error",
+          "single"
+      ],
+      "semi": [
+          "error",
+          "always"
+      ],
+      "no-var":"error",
+      "key-spacing":[
+          2,{"align": {
+              "beforeColon": true,
+              "afterColon": true,
+              "on": "colon",
+              "mode": "strict"
+          }}
+      ],
+      "space-before-function-paren": [
+          "error", "always"
+      ],
+      "keyword-spacing":[
+          "error"
+      ],
+      "arrow-spacing":"error",
+      "space-before-blocks":[
+          "error"
+      ],
+      "align-assignments/align-assignments": [
+          2, { "requiresOnly": false } 
+      ],
+      "space-infix-ops": ["error", { "int32Hint": false }]
+      }
+    }
