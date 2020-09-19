@@ -14,7 +14,7 @@ export interface GlobalProps extends Props {
     children?: React.ReactNode;
     theme?: (theme: DefaultTheme) => DefaultTheme;
 }
-const GlobalContext = createGlobalStyle<Props>`
+const GlobalContext = createGlobalStyle <Props> `
     body {
         margin: 0;
         padding: 0;
@@ -30,18 +30,18 @@ const GlobalContext = createGlobalStyle<Props>`
         height: 100%;
         width: 100%;
     }
-`
+`;
 
 export const Global: React.FC<GlobalProps> = ({
     children,
     theme = Theme,
     style,
-}): React.ReactElement =>(
+}): React.ReactElement => (
     <ThemeProvider theme={theme}>
         <Fragment>
             <GlobalContext style={style}/>
             {children}
         </Fragment>
     </ThemeProvider>
-)
+);
 export default Global;

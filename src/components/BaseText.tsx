@@ -6,33 +6,35 @@ export interface BaseTextProps extends React.HTMLAttributes<HTMLParagraphElement
     lineHeight?: number | string;
     bold?: boolean;
     size?:string;
-    type?: string;
+    type?: any | string | number | symbol;
     margin?: string;
     shadow?: number;
 }
 
 export const BaseText: React.FC<BaseTextProps> = ({
     children,
-    type,
+    type = 'span',
     ...props
-}): React.ReactElement =>{
+}): React.ReactElement => {
     return (
-        <Text as={type as 'span'} {...props}>
+        <Text
+            as={type}
+            {...props}>
             {children}
         </Text>
-    )
-}
+    );
+};
 
-const Text = styled.p<BaseTextProps>`
+const Text = styled.p<BaseTextProps> `
     ${({
         theme,
         bold,
-        color = "primary",
-        size = "default",
+        color = 'primary',
+        size = 'default',
         margin,
         lineHeight,
         shadow = 0,
-    }): string =>`
+    }): string => `
         text-shadow: ${theme.depth[shadow]};
         color: ${theme.colors[color] || color};
         font-size: ${theme.font.size[size] || size};
@@ -40,4 +42,4 @@ const Text = styled.p<BaseTextProps>`
         font-weight: ${bold ? 'bold' : 'normal'};
         margin: ${margin};
     `}
-`
+`;

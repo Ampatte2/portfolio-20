@@ -1,47 +1,69 @@
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components';
 import { AnimatedDivProps } from './AnimatedDiv';
 import { flex } from '../globals/Flex';
 
+export enum ClipTypes {
+    ELLIPSE = 'ellipse',
+    CIRCLE = 'circle'
+}
+
 interface AnimatedCircleProps extends AnimatedDivProps {
-    clipStart?: number;
-    clipEnd?: number;
+    clipStart?: string;
+    clipEnd?: string;
+    type?: ClipTypes;
+    backgroundColor: string;
 }
 
 export const AnimatedCircle: React.FC<AnimatedCircleProps> = ({
     children,
     ...props
 }) => {
-    return (
+    return ( 
         <AnimatedCircleDiv {...props}>
-                {children}
+            {children}
         </AnimatedCircleDiv>
-    )
-}
+    );
+};
 
 const AnimatedCircleDiv = styled.div<AnimatedCircleProps>`
     position: fixed;
     top:50%;
     left:50%;
     z-index: 2;
-    ${flex("center")};
-    background: orange;
-    clip-path: circle(0%);
-    height: 200px;
-    transition: clip-path 1s;
-    width: 200px;
-    animation: circleout 2s ease-in-out forwards;
-    @keyframes ${props=>`
-                ${props.id} {
-                0% {
-                    transform: translate(${props.xInitial}px, ${props.yInitial}px);
-                    clip-path: circle(${props.clipStart}%);
-                }
-                100%{
-                    transform: translate(${props.xFinal}px, ${props.yFinal}px);
-                    clip-path: circle(${props.clipEnd}%);
-                }
-            } `
+    ${flex('center')};
+    border-radius: 999px;
+    width: ${props => props.width};
+    height: ${props => props.height};
+    ${({
+        theme,
+        animationDelay,
+        animation,
+        xInitial,
+        yInitial,
+        xFinal,
+        yFinal,
+        clipStart,
+        clipEnd,
+        backgroundColor,
+        id,
+        type,
+    }): string => `
+        clip-path: ${type}(0%);
+        animation: ${id + ' ' + animation};
+        animation-delay: ${animationDelay}s;
+        background-color: ${theme.colors[backgroundColor] || backgroundColor};
+        opacity:0;
+        @keyframes ${id} {
+                    0% {
+                        transform: translate(${xInitial}px, ${yInitial}px);
+                        clip-path: ${type}(${clipStart});
+                    }
+                    100%{
+                        opacity:1;
+                        transform: translate(${xFinal}px, ${yFinal}px);
+                        clip-path: ${type}(${clipEnd});
+                    }
+                } `
         };
-
 `

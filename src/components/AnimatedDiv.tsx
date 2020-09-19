@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components';
 
 export interface AnimatedDivProps {
@@ -9,6 +9,8 @@ export interface AnimatedDivProps {
     xFinal?: number;
     yFinal?: number;
     id?: string;
+    width?: string;
+    height?: string;
 }
 
 export const AnimatedDiv: React.FC<AnimatedDivProps> = ({
@@ -17,25 +19,28 @@ export const AnimatedDiv: React.FC<AnimatedDivProps> = ({
 }) => {
     return (
         <Animation {...props}>
-                {children}
+            {children}
         </Animation>
-    )
-}
+    );
+};
 
 const Animation = styled.div<AnimatedDivProps>`
-    animation: ${props=> props.id + " " + props.animation} forwards;
+    animation: ${props => props.id + ' ' + props.animation} forwards;
     z-index:1;
-    opacity:1;
+    opacity:0;
     position: absolute;
-    animation-delay: ${props=>props.animationDelay}s;
-    @keyframes ${props=>`
+    width: ${props => props.width};
+    height: ${props => props.height};
+    animation-delay: ${props => props.animationDelay}s;
+    @keyframes ${props => `
             ${props.id} {
             0% {
                 transform: translate(${props.xInitial}px, ${props.yInitial}px);
             }
             100%{
                 transform: translate(${props.xFinal}px, ${props.yFinal}px);
+                opacity: 1;
             }
         } `
-    }
-`
+}
+`;
