@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import {top, bot, mid } from '../assets/images';
+import { top, bot, mid } from '../assets/images';
 
 export const AnimatedBackground: React.FC = (): React.ReactElement => {
     return (
@@ -51,7 +51,7 @@ interface WrapperProps {
     opacity?: number;
 }
 interface WaveProps {
-    img?: typeof import("*.png");
+    img?: any;
     time?: number;
     size?: string;
 }
@@ -72,7 +72,7 @@ const WrapperInner = styled.div<WrapperProps>`
     overflow: hidden;
     height: 100%;
     bottom: -1px;
-    background-image: ${({theme}) => `
+    background-image: ${({ theme }) => `
         linear-gradient(to top, ${theme.colors.primary} 5%, ${theme.colors.secondary} 95%);
     `}
     z-index: ${props => props.index};

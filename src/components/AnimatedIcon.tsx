@@ -1,4 +1,4 @@
-import React, {useLayoutEffect, useState} from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import styled from 'styled-components';
 import { StyledIcon } from 'styled-icons/types';
 

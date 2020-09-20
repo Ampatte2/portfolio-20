@@ -1,8 +1,9 @@
 import React, { useState, useLayoutEffect, useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import { AnimatedBackground, AnimatedDiv, AnimatedCircle, ClipTypes, BaseText } from '../components';
-import { LandingIntro } from './index';
+import { AnimatedBackground, AnchorLink, AnimatedCircle, ClipTypes, BaseText } from '../components';
+import { LandingIntro, Header, AboutLinks } from './index';
 import { useMounted } from '../utils';
+import { icons } from '../assets/icons';
 
 export interface DimensionsProps {
     radius: number;
@@ -19,11 +20,11 @@ export const Landing = () => {
     const [dimensions, setDimensions] = useState<DimensionsProps>({ radius: 250, leg: 250, height: 250, width: 250 });
 
     useLayoutEffect(() => {
-        if (targetRef.current){
+        if (targetRef.current) {
             const { height, width } = targetRef.current.getBoundingClientRect();
             const radius            = Math.min(height, width) / 2;
             const leg               = 0.707106781 * radius;
-            if(isMounted){
+            if (isMounted) {
                 setDimensions({ radius: radius, leg: leg, height: height, width: width });
             }
         }
@@ -42,59 +43,74 @@ export const Landing = () => {
 
     return (
         <LandingDiv ref={targetRef}>
-            <LandingIntro dimensions={dimensions} index={index} isChecked={isChecked}/>
-            <AnimatedDiv
-                id="main"
-                animation="2s ease-out"
+            <LandingIntro
+                delay={0}
+                dimensions={dimensions}
+                index={index}
+                isChecked={isChecked}/>
+            <Header
+                animationDelay={12}
+                dimensions={dimensions}/>
+            <AnimatedCircle
+                clipStart="100% 0% at 50% 50%"
+                clipEnd="100% 100% at 50% 50%"
+                id="github"
+                animation="3s ease-out forwards"
+                xInitial={dimensions.width}
+                yInitial={dimensions.height * 0.1}
+                xFinal={dimensions.width * 0.6}
+                yFinal={200}
+                type={ClipTypes.ELLIPSE}
+                animationDelay={12}
+                backgroundColor="transparent">
+                <AnchorLink
+                    href="https://github.com/Ampatte2"
+                    target="_blank">
+                    <StyledIcon as={icons.Github} />
+                    <BaseText
+                        size="2.5rem"
+                        shadow={2}
+                        color="white"
+                        margin="0 0 0 20px"
+                    >
+                        Recent
+                    </BaseText>
+                </AnchorLink>
+            </AnimatedCircle>
+            <AnimatedCircle
+                clipStart="100% 0% at 50% 50%"
+                clipEnd="100% 100% at 50% 50%"
+                id="project"
+                animation="3s ease-out forwards"
                 xInitial={-100}
-                yInitial={-100}
-                xFinal={dimensions.width / 7}
-                yFinal={30}
-                animationDelay={11}>
-                <BaseText
-                    size="3.2rem"
-                    shadow={2}
-                    color="white">
-                    Andrew Patterson
-                </BaseText>
-            </AnimatedDiv>
-            <AnimatedDiv 
-                id="second"
-                animation="2s ease-out" 
-                xInitial={-100}
-                yInitial={100}
-                xFinal={dimensions.width / 6.5}
-                yFinal={100}
-                animationDelay={11}>
+                yInitial={dimensions.height * 0.6}
+                xFinal={dimensions.width * 0.075}
+                yFinal={dimensions.height * 0.6}
+                type={ClipTypes.ELLIPSE}
+                animationDelay={12}
+                backgroundColor="transparent">
+                <StyledIcon as={icons.Project} />
                 <BaseText
                     size="2.5rem"
                     shadow={2}
-                    color="white">
-                    FullStack Web Developer
-                </BaseText>
-            </AnimatedDiv>
-            <AnimatedCircle
-                clipStart="43% 0% at 50% 50%"
-                clipEnd="43% 30% at 50% 50%"
-                id="circle"
-                animation="2s ease-out forwards"
-                xInitial={-100}
-                yInitial={100}
-                xFinal={dimensions.width / 6.5}
-                yFinal={-400}
-                width='300px'
-                height='200px'
-                type={ClipTypes.ELLIPSE}
-                animationDelay={12}
-                backgroundColor="secondary">
-                <BaseText>
-                    Github
+                    color="white"
+                    margin="0 0 0 20px"
+                >
+                    Projects
                 </BaseText>
             </AnimatedCircle>
+            <AboutLinks
+                animationDelay={12}
+                dimensions={dimensions}/>
             <AnimatedBackground/>
         </LandingDiv>
     );
 };
+
+const StyledIcon = styled.svg`
+    width:7vh;
+    color: white;
+`;
 
 const LandingDiv = styled.div`
     width:100%;

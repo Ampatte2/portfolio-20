@@ -1,14 +1,14 @@
 
 export const flex = (
     direction?: string
-): string =>{
-    if(!direction){
+): string => {
+    if (!direction) {
         return 'display: flex';
-    }else{
+    } else {
         return `
             display: flex;
             justify-content: ${direction};
             align-items: ${direction};
-        `
+        `;
     }
-}
+};

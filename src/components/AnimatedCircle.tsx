@@ -28,8 +28,6 @@ export const AnimatedCircle: React.FC<AnimatedCircleProps> = ({
 
 const AnimatedCircleDiv = styled.div<AnimatedCircleProps>`
     position: fixed;
-    top:50%;
-    left:50%;
     z-index: 2;
     ${flex('center')};
     border-radius: 999px;
@@ -65,5 +63,5 @@ const AnimatedCircleDiv = styled.div<AnimatedCircleProps>`
                         clip-path: ${type}(${clipEnd});
                     }
                 } `
-        };
-`
+};
+`;

@@ -1,19 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { GithubSquare } from '@styled-icons/fa-brands/GithubSquare';
-import { ReactLogo } from '@styled-icons/fa-brands/ReactLogo';
-import { Nodejs } from '@styled-icons/boxicons-logos/Nodejs';
-import { Postgresql } from '@styled-icons/simple-icons/Postgresql';
-import { Docker } from '@styled-icons/fa-brands/Docker';
-import { Typescript } from '@styled-icons/simple-icons/Typescript';
-import { Mongodb } from '@styled-icons/simple-icons/Mongodb';
-import { Graphql } from '@styled-icons/simple-icons/Graphql';
 import { AnimatedIcon } from '../components';
+import { icons } from '../assets/icons';
 import { flex } from '../globals/Flex';
 
 const TITLE_ARRAY = ['Github', 'NodeJs', 'Postgresql', 'Docker', 'Typescript', 'MongoDB', 'GraphQL', 'React', 'Andrew Patterson'];
 
-interface Dimensions {
+export interface Dimensions {
     leg: number;
     radius: number;
 }
@@ -22,12 +15,14 @@ interface LandingIntroProps {
     isChecked: boolean;
     index: number;
     dimensions: Dimensions;
+    delay: number;
 }
 
 export const LandingIntro: React.FC<LandingIntroProps> = ({
     isChecked,
     index,
-    dimensions
+    dimensions,
+    delay = 0
 }): React.ReactElement => {
     return (
         <Container
@@ -40,49 +35,50 @@ export const LandingIntro: React.FC<LandingIntroProps> = ({
                 id="move1"
                 x={-dimensions.radius}
                 y={0}
-                icon={GithubSquare}/>
+                delay={delay}
+                icon={icons.Github}/>
             <AnimatedIcon
                 id="move2"
                 x={-dimensions.leg}
                 y={-dimensions.leg}
-                delay={1}
-                icon={Nodejs}/>
+                delay={delay + 1}
+                icon={icons.NodeJs}/>
             <AnimatedIcon
                 id="move3"
                 x={0}
                 y={-dimensions.radius}
-                delay={2}
-                icon={Postgresql}/>
+                delay={delay + 2}
+                icon={icons.Postgresql}/>
             <AnimatedIcon
                 id="move4"
                 x={dimensions.leg}
                 y={-dimensions.leg}
-                delay={3}
-                icon={Docker}/>
+                delay={delay + 3}
+                icon={icons.Docker}/>
             <AnimatedIcon
                 id="move5"
                 x={dimensions.radius}
                 y={0}
-                delay={4}
-                icon={Typescript}/>
+                delay={delay + 4}
+                icon={icons.Typescript}/>
             <AnimatedIcon
                 id="move6"
                 x={dimensions.leg}
                 y={dimensions.leg}
-                delay={5}
-                icon={Mongodb}/>
+                delay={delay + 5}
+                icon={icons.MongoDB}/>
             <AnimatedIcon
                 id="move7"
                 x={0}
                 y={dimensions.radius}
-                delay={6}
-                icon={Graphql}/>
+                delay={delay + 6}
+                icon={icons.GraphQL}/>
             <AnimatedIcon
                 id="move8"
                 x={-dimensions.leg}
                 y={dimensions.leg}
-                delay={7}
-                icon={ReactLogo}/>
+                delay={delay + 7}
+                icon={icons.React}/>
         </Container>
     );
 };

@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import {
     DefaultTheme, 
     ThemeProvider,
@@ -14,7 +14,7 @@ export interface GlobalProps extends Props {
     children?: React.ReactNode;
     theme?: (theme: DefaultTheme) => DefaultTheme;
 }
-const GlobalContext = createGlobalStyle <Props> `
+const GlobalContext = createGlobalStyle<Props>`
     body {
         margin: 0;
         padding: 0;
