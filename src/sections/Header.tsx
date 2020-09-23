@@ -18,12 +18,14 @@ export const Header: React.FC<HeaderProps> = ({
             xInitial={-100}
             yInitial={-100}
             xFinal={dimensions.width * 0.05}
-            yFinal={30}
-            animationDelay={animationDelay}>
+            yFinal={dimensions.height * 0.05}
+            animationDelay={animationDelay}
+            backgroundColor="transparent">
             <BaseText
-                size="3.2rem"
+                size="5vmin"
                 shadow={1}
-                color="white">
+                color="white"
+                bold>
                 Andrew Patterson
             </BaseText>
         </AnimatedDiv>
@@ -33,11 +35,12 @@ export const Header: React.FC<HeaderProps> = ({
             xInitial={-100}
             yInitial={dimensions.height * 0.125}
             xFinal={dimensions.width * 0.075}
-            yFinal={100}
-            animationDelay={animationDelay}>
+            yFinal={dimensions.height * 0.12}
+            animationDelay={animationDelay}
+            backgroundColor="transparent">
             <BaseText
-                size="2.5rem"
-                shadow={2}
+                size="4.5vmin"
+                shadow={1}
                 color="white">
                 FullStack Web Developer
             </BaseText>

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { flex } from '../globals/Flex';
 
 
-interface AnchorLinkProps {
+interface AnchorLinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
     href?: string;
     target?: string;
 }

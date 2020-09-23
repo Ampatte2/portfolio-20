@@ -59,7 +59,7 @@ export const Landing = () => {
                 xInitial={dimensions.width}
                 yInitial={dimensions.height * 0.1}
                 xFinal={dimensions.width * 0.6}
-                yFinal={200}
+                yFinal={dimensions.height * 0.2}
                 type={ClipTypes.ELLIPSE}
                 animationDelay={12}
                 backgroundColor="transparent">
@@ -68,7 +68,7 @@ export const Landing = () => {
                     target="_blank">
                     <StyledIcon as={icons.Github} />
                     <BaseText
-                        size="2.5rem"
+                        size="4vmin"
                         shadow={2}
                         color="white"
                         margin="0 0 0 20px"
@@ -83,15 +83,15 @@ export const Landing = () => {
                 id="project"
                 animation="3s ease-out forwards"
                 xInitial={-100}
-                yInitial={dimensions.height * 0.6}
+                yInitial={dimensions.height * 0.1}
                 xFinal={dimensions.width * 0.075}
-                yFinal={dimensions.height * 0.6}
+                yFinal={dimensions.height * 0.2}
                 type={ClipTypes.ELLIPSE}
                 animationDelay={12}
                 backgroundColor="transparent">
                 <StyledIcon as={icons.Project} />
                 <BaseText
-                    size="2.5rem"
+                    size="4vmin"
                     shadow={2}
                     color="white"
                     margin="0 0 0 20px"
@@ -108,7 +108,7 @@ export const Landing = () => {
 };
 
 const StyledIcon = styled.svg`
-    width:7vh;
+    width:6vh;
     color: white;
 `;
 

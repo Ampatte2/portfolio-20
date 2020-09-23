@@ -81,6 +81,7 @@ export interface ThemeInterface {
     media: {
         tablet: number;
         phone: number;
+        [key: string]: number;
     };
     speed: {
         fast: number;
@@ -100,6 +101,7 @@ const Theme: ThemeInterface = {
         size       : {
             default : '1rem',
             small   : '0.85rem',
+            large   : '3.0rem',
             h1      : '2rem',
             h2      : '1.75rem',
             h3      : '1.55rem',

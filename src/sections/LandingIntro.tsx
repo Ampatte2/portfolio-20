@@ -117,16 +117,16 @@ const Container = styled.div<ContainerProps>`
 const TitleDiv  = styled.div`
     ${({ theme }) => `
         background: ${theme.colors.background};
-        font-size: ${theme.font.size.h3};
+        font-size: ${theme.font.size.large};
         color: ${theme.colors.primary};
     `};
     ${flex('center')};
     border-radius: 999px;
-    width:200px;
-    height: 100px;
+    width:35vw;
+    height: 15vw;
     border: 1px solid transparent;
     z-index: 2;
-    animation: spin 2s ease-in-out;
+    animation: spin 2s ease-in-out forwards;
     animation-delay: 8s;
     @keyframes spin {
             0% {
@@ -137,6 +137,7 @@ const TitleDiv  = styled.div`
             }
             100% {
                 transform: rotate(360deg) scale(1.25);
+                opacity:0;
             }
     };
 `;

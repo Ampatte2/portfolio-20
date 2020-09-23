@@ -11,6 +11,7 @@ export interface AnimatedDivProps {
     id?: string;
     width?: string;
     height?: string;
+    backgroundColor: string;
 }
 
 export const AnimatedDiv: React.FC<AnimatedDivProps> = ({
@@ -25,22 +26,37 @@ export const AnimatedDiv: React.FC<AnimatedDivProps> = ({
 };
 
 const Animation = styled.div<AnimatedDivProps>`
-    animation: ${props => props.id + ' ' + props.animation} forwards;
-    z-index:1;
-    opacity:0;
+    z-index:2;
     position: absolute;
-    width: ${props => props.width};
-    height: ${props => props.height};
-    animation-delay: ${props => props.animationDelay}s;
-    @keyframes ${props => `
-            ${props.id} {
+    ${({
+        theme,
+        animationDelay,
+        animation,
+        xInitial,
+        yInitial,
+        xFinal,
+        yFinal,
+        height,
+        width,
+        backgroundColor,
+        id,
+    }): string => `
+        animation-delay: ${animationDelay}s;
+        animation: ${id + ' ' + animation} forwards;
+        background-color: ${theme.colors[backgroundColor] || backgroundColor};
+        opacity:0;
+        width: ${width};
+        height: ${height};
+        animation-delay: ${animationDelay}s;
+        @keyframes ${id} {
             0% {
-                transform: translate(${props.xInitial}px, ${props.yInitial}px);
+                transform: translate(${xInitial}px, ${yInitial}px);
             }
             100%{
-                transform: translate(${props.xFinal}px, ${props.yFinal}px);
+                transform: translate(${xFinal}px, ${yFinal}px);
                 opacity: 1;
             }
         } `
-}
+};
+    
 `;
