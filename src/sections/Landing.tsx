@@ -1,7 +1,7 @@
 import React, { useState, useLayoutEffect, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { AnimatedBackground, AnchorLink, AnimatedCircle, ClipTypes, BaseText } from '../components';
-import { LandingIntro, Header, AboutLinks } from './index';
+import { LandingIntro, Header, AboutLinks, Projects } from './index';
 import { useMounted } from '../utils';
 import { icons } from '../assets/icons';
 
@@ -51,6 +51,9 @@ export const Landing = () => {
             <Header
                 animationDelay={12}
                 dimensions={dimensions}/>
+            <Projects
+                animationDelay={12}
+                dimensions={dimensions}></Projects>
             <AnimatedCircle
                 clipStart="100% 0% at 50% 50%"
                 clipEnd="100% 100% at 50% 50%"

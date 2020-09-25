@@ -117,13 +117,13 @@ const Container = styled.div<ContainerProps>`
 const TitleDiv  = styled.div`
     ${({ theme }) => `
         background: ${theme.colors.background};
-        font-size: ${theme.font.size.large};
+        font-size: ${theme.font.size.h1};
         color: ${theme.colors.primary};
     `};
     ${flex('center')};
     border-radius: 999px;
-    width:35vw;
-    height: 15vw;
+    width: 25vmin;
+    height: 15vmin;
     border: 1px solid transparent;
     z-index: 2;
     animation: spin 2s ease-in-out forwards;

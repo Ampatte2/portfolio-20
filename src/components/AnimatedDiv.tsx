@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { flex } from '../globals/Flex';
 
 export interface AnimatedDivProps {
     animation?: string;
@@ -11,6 +12,8 @@ export interface AnimatedDivProps {
     id?: string;
     width?: string;
     height?: string;
+    widthFinal?: string;
+    heightFinal?: string;
     backgroundColor: string;
 }
 
@@ -28,6 +31,7 @@ export const AnimatedDiv: React.FC<AnimatedDivProps> = ({
 const Animation = styled.div<AnimatedDivProps>`
     z-index:2;
     position: absolute;
+    ${flex('center')}
     ${({
         theme,
         animationDelay,
@@ -38,6 +42,8 @@ const Animation = styled.div<AnimatedDivProps>`
         yFinal,
         height,
         width,
+        heightFinal,
+        widthFinal,
         backgroundColor,
         id,
     }): string => `
@@ -55,6 +61,8 @@ const Animation = styled.div<AnimatedDivProps>`
             100%{
                 transform: translate(${xFinal}px, ${yFinal}px);
                 opacity: 1;
+                ${heightFinal && 'height: ' + heightFinal};
+                ${widthFinal && 'width: ' + widthFinal};
             }
         } `
 };
