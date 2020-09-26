@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components';
-import { LoaderAlt } from "@styled-icons/boxicons-regular/LoaderAlt";
-import {BaseText} from './index';
+import { LoaderAlt } from '@styled-icons/boxicons-regular/LoaderAlt';
+import { BaseText } from './index';
 
 
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
@@ -17,6 +17,7 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
     disabled?: boolean;
     animation?: string;
     size?: string;
+    margin?: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -31,27 +32,33 @@ export const Button: React.FC<ButtonProps> = ({
     onHover,
     size,
     padding,
+    margin,
     ...props
 }): React.ReactElement => {
     return (
-        <Main disabled={disabled} padding={padding} animation={animation} onHover={onHover}>
+        <Main
+            disabled={disabled}
+            padding={padding}
+            animation={animation}
+            onHover={onHover}>
             {icon && <Icon as={icon}/>}
             {children && <BaseText size={size}>{children}</BaseText>}
             {loading && <Loading loading={loading}/>}
         </Main>
-    )
-}
+    );
+};
 
-const Main = styled.button<ButtonProps>`
+const Main    = styled.button<ButtonProps>`
     ${({
         theme,
         full,
         padding,
         animation,
-        backgroundColor = "background",
+        backgroundColor = 'background',
         border,
         onHover,
-    }): string =>`
+        margin,
+    }): string => `
         background: ${theme.colors[backgroundColor] || backgroundColor};
         padding: ${padding ? padding: theme.dimensions.padding.default};
         border: ${border || '0px solid transparent'};
@@ -59,16 +66,16 @@ const Main = styled.button<ButtonProps>`
         &:hover{
             ${onHover}
         };
+        margin: ${margin};
         ${animation};
     `}
     cursor: pointer;
     outline: none;
     overflow: hidden;
-    z-index:2;
+    z-index:3;
     border-radius: 999px;
-    transition: 0.3s ease-in-out;
-    
-`
+    transition: 0.3s ease-in-out;    
+`;
 const Loading = styled(LoaderAlt)<{ loading: boolean }>`
     animation: spin 1s linear 0s infinite;
     height: 14px;
@@ -84,12 +91,12 @@ const Loading = styled(LoaderAlt)<{ loading: boolean }>`
         }
     }
     ${({ loading }): string =>
-            loading
-                ? `
+        loading
+            ? `
             opacity: 1;
         `
-                : ''}
-`
-const Icon = styled.svg`
+            : ''}
+`;
+const Icon    = styled.svg`
 
-`
+`;

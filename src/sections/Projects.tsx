@@ -1,54 +1,102 @@
 import React from 'react';
 import styled from 'styled-components';
 import { quiz, mtg } from '../assets/images';
-import { AnimatedCircle, BaseText, ClipTypes } from '../components';
-import { DimensionsProps } from './Landing';
+import { OverlayImg, Button, AnchorLink } from '../components';
+import { media } from '../utils';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
 
 interface ProjectsProps {
     animationDelay: number;
-    dimensions: DimensionsProps
 }
 
-export const Projects: React.FC<ProjectsProps> = ({
-    animationDelay,
-    dimensions,
+export const ProjectsDisplay: React.FC<ProjectsProps> = ({
+    ...props
 }): React.ReactElement => {
-    return <>
-        <AnimatedCircle
-            clipStart="100% 0% at 50% 50%"
-            clipEnd="100% 100% at 50% 50%"
-            id="MTGProject"
-            animation="3s ease-out forwards"
-            xInitial={dimensions.width}
-            yInitial={dimensions.height * 0.3}
-            xFinal={dimensions.width * 0.6}
-            yFinal={dimensions.height * 0.3}
-            type={ClipTypes.ELLIPSE}
-            animationDelay={animationDelay}
-            backgroundColor="transparent">
-            <ColorDiv src={mtg}/>
-        </AnimatedCircle>
-        <AnimatedCircle
-            clipStart="100% 0% at 50% 50%"
-            clipEnd="100% 100% at 50% 50%"
-            id="QUIZProject"
-            animation="3s ease-out forwards"
-            xInitial={-100}
-            yInitial={dimensions.height * 0.3}
-            xFinal={dimensions.width * 0.075}
-            yFinal={dimensions.height * 0.3}
-            type={ClipTypes.ELLIPSE}
-            animationDelay={animationDelay}
-            backgroundColor="transparent">
-            <ColorDiv src={quiz}/>
-        </AnimatedCircle>
-    </>;
+    return <ProjectsDiv {...props}>
+        <Carousel
+            width="100%"
+            showArrows
+            showStatus={false}
+        >
+            <OverlayImg
+                source={mtg}
+                width="100%"
+                height="100%"
+                backgroundColor="primary">
+                <AnchorLink
+                    href="https://github.com/Ampatte2/mtgbuilder_server"
+                    target="_blank"
+                    margin="0 20px 0 0">
+                    <Button
+                        size="h1"
+                        onHover="opacity: 1;">
+                        Code
+                    </Button>
+                </AnchorLink>
+                <AnchorLink
+                    href="https://mtg-builder-application.herokuapp.com/"
+                    target="_blank">
+                    <Button size="h1">
+                        Demo
+                    </Button>
+                </AnchorLink>
+            </OverlayImg>
+            <OverlayImg
+                source={quiz}
+                width="100%"
+                height="100%"
+                backgroundColor="primary">
+                <AnchorLink
+                    href="https://github.com/Ampatte2/Angular-Quiz-App"
+                    target="_blank">
+                    <Button size="h1">
+                        Code
+                    </Button>
+                </AnchorLink>
+                <AnchorLink
+                    href="https://angular-quiz-app-mysql.herokuapp.com/"
+                    target="_blank"
+                    margin="0 20px 0 0">
+                    <Button
+                        size="h1">
+                        Demo
+                    </Button>
+                </AnchorLink>
+            </OverlayImg>
+        </Carousel>
+    </ProjectsDiv>;
 };
 
-const ColorDiv = styled.img`
-    background-color:red;
-    cursor:pointer;
-    width:50vmin;
-    height:35vmin;
-    z-index: 2;
+const ProjectsDiv = styled.div<ProjectsProps>`
+    position: absolute;
+    overflow:hidden;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    width:60vw;
+    height:60vh;
+    ${({
+        animationDelay,
+    }): string => `
+        clip-path: ellipse(0%);
+        animation: projectsAnimation 4s ease-out forwards;
+        animation-delay: ${animationDelay}s;
+        opacity:0;
+        @keyframes projectsAnimation {
+                    0% {
+                        clip-path: ellipse(100% 0% at 50% 50%);
+                    }
+                    100%{
+                        opacity:1;
+                        clip-path: ellipse(100% 100% at 50% 50%);
+                    }
+                } `
+};
+    ${media(
+        'tablet',
+        `
+        width:90vw;
+    `,
+    )}
 `;

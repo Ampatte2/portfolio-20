@@ -6,6 +6,7 @@ import { flex } from '../globals/Flex';
 interface AnchorLinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
     href?: string;
     target?: string;
+    margin?: string;
 }
 
 export const AnchorLink: React.FC<AnchorLinkProps> = ({
@@ -24,10 +25,11 @@ export const AnchorLink: React.FC<AnchorLinkProps> = ({
     );
 };
 
-const Anchor = styled.a`
+const Anchor = styled.a<AnchorLinkProps>`
     text-decoration: none;
     cursor: pointer;
     ${flex('center')}
+    margin: ${props => props.margin};
     &:hover {
         opacity: 0.75;
     }

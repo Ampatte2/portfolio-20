@@ -9,17 +9,25 @@ import { Graphql } from '@styled-icons/simple-icons/Graphql';
 import { Project } from '@styled-icons/octicons/Project';
 import { Linkedin } from '@styled-icons/fa-brands/Linkedin';
 import { Document } from '@styled-icons/ionicons-sharp/Document';
+import { ArrowBack } from '@styled-icons/ionicons-outline/ArrowBack';
+import { Server } from '@styled-icons/fa-solid/Server';
+import { DesignServices } from '@styled-icons/material/DesignServices';
+import { Database } from '@styled-icons/fa-solid/Database';
 
 export const icons = {
-    Github     : GithubSquare,
-    NodeJs     : Nodejs,
-    Postgresql : Postgresql,
-    Docker     : Docker,
-    Typescript : Typescript,
-    MongoDB    : Mongodb,
-    GraphQL    : Graphql,
-    React      : ReactLogo,
-    Project    : Project,
-    LinkedIn   : Linkedin,
-    Document   : Document,
+    Github         : GithubSquare,
+    NodeJs         : Nodejs,
+    Postgresql     : Postgresql,
+    Docker         : Docker,
+    Typescript     : Typescript,
+    MongoDB        : Mongodb,
+    GraphQL        : Graphql,
+    React          : ReactLogo,
+    Project        : Project,
+    LinkedIn       : Linkedin,
+    Document       : Document,
+    ArrowBack      : ArrowBack,
+    Server         : Server,
+    DesignServices : DesignServices,
+    Database       : Database
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { AnchorLink, AnimatedCircle } from '../components';
-import { DimensionsProps } from './Landing';
+import { DimensionsProps } from '../pages/Landing';
 import { icons } from '../assets/icons';
 
 interface AboutLinksProps {
@@ -19,7 +19,7 @@ export const AboutLinks: React.FC<AboutLinksProps> = ({
         xInitial={dimensions.width * 0.5}
         yInitial={dimensions.height}
         xFinal={dimensions.width * 0.5}
-        yFinal={dimensions.height * 0.80}
+        yFinal={dimensions.height * 0.825}
         animationDelay={animationDelay}
         backgroundColor="transparent"
         width="1px">
@@ -42,7 +42,7 @@ export const AboutLinks: React.FC<AboutLinksProps> = ({
 };
 
 const StyledIcon = styled.svg`
-    width:5vh;
+    width: 5vmin;
     color: white;
     margin:0 10px;
 `;

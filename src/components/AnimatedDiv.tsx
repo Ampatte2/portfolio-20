@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { flex } from '../globals/Flex';
 
-export interface AnimatedDivProps {
+export interface AnimatedDivProps extends React.HTMLAttributes<HTMLDivElement> {
     animation?: string;
     animationDelay?: number;
     xInitial?: number;

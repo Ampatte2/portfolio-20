@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { AnimatedIcon } from '../components';
 import { icons } from '../assets/icons';
 import { flex } from '../globals/Flex';
+import { media } from '../utils';
 
 const TITLE_ARRAY = ['Github', 'NodeJs', 'Postgresql', 'Docker', 'Typescript', 'MongoDB', 'GraphQL', 'React', 'Andrew Patterson'];
 
@@ -28,57 +29,60 @@ export const LandingIntro: React.FC<LandingIntroProps> = ({
         <Container
             isChecked={isChecked}
         >
-            <TitleDiv>
-                {TITLE_ARRAY[index]}
-            </TitleDiv>
-            <AnimatedIcon
-                id="move1"
-                x={-dimensions.radius}
-                y={0}
-                delay={delay}
-                icon={icons.Github}/>
-            <AnimatedIcon
-                id="move2"
-                x={-dimensions.leg}
-                y={-dimensions.leg}
-                delay={delay + 1}
-                icon={icons.NodeJs}/>
-            <AnimatedIcon
-                id="move3"
-                x={0}
-                y={-dimensions.radius}
-                delay={delay + 2}
-                icon={icons.Postgresql}/>
-            <AnimatedIcon
-                id="move4"
-                x={dimensions.leg}
-                y={-dimensions.leg}
-                delay={delay + 3}
-                icon={icons.Docker}/>
-            <AnimatedIcon
-                id="move5"
-                x={dimensions.radius}
-                y={0}
-                delay={delay + 4}
-                icon={icons.Typescript}/>
-            <AnimatedIcon
-                id="move6"
-                x={dimensions.leg}
-                y={dimensions.leg}
-                delay={delay + 5}
-                icon={icons.MongoDB}/>
-            <AnimatedIcon
-                id="move7"
-                x={0}
-                y={dimensions.radius}
-                delay={delay + 6}
-                icon={icons.GraphQL}/>
-            <AnimatedIcon
-                id="move8"
-                x={-dimensions.leg}
-                y={dimensions.leg}
-                delay={delay + 7}
-                icon={icons.React}/>
+            {!isChecked &&    <>
+                <TitleDiv>
+                    {TITLE_ARRAY[index]}
+                </TitleDiv>
+                <AnimatedIcon
+                    id="move1"
+                    x={-dimensions.radius}
+                    y={0}
+                    delay={delay}
+                    icon={icons.Github}/>
+                <AnimatedIcon
+                    id="move2"
+                    x={-dimensions.leg}
+                    y={-dimensions.leg}
+                    delay={delay + 1}
+                    icon={icons.NodeJs}/>
+                <AnimatedIcon
+                    id="move3"
+                    x={0}
+                    y={-dimensions.radius}
+                    delay={delay + 2}
+                    icon={icons.Postgresql}/>
+                <AnimatedIcon
+                    id="move4"
+                    x={dimensions.leg}
+                    y={-dimensions.leg}
+                    delay={delay + 3}
+                    icon={icons.Docker}/>
+                <AnimatedIcon
+                    id="move5"
+                    x={dimensions.radius}
+                    y={0}
+                    delay={delay + 4}
+                    icon={icons.Typescript}/>
+                <AnimatedIcon
+                    id="move6"
+                    x={dimensions.leg}
+                    y={dimensions.leg}
+                    delay={delay + 5}
+                    icon={icons.MongoDB}/>
+                <AnimatedIcon
+                    id="move7"
+                    x={0}
+                    y={dimensions.radius}
+                    delay={delay + 6}
+                    icon={icons.GraphQL}/>
+                <AnimatedIcon
+                    id="move8"
+                    x={-dimensions.leg}
+                    y={dimensions.leg}
+                    delay={delay + 7}
+                    icon={icons.React}/>
+            </>
+            }
         </Container>
     );
 };
@@ -125,6 +129,13 @@ const TitleDiv  = styled.div`
     width: 25vmin;
     height: 15vmin;
     border: 1px solid transparent;
+    ${media(
+        'tablet',
+        `
+        width:35vw;
+        height:12.5vh;
+    `,
+    )}
     z-index: 2;
     animation: spin 2s ease-in-out forwards;
     animation-delay: 8s;

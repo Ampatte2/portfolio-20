@@ -1,6 +1,6 @@
 import React from 'react';
 import { AnimatedDiv, BaseText } from '../components';
-import { DimensionsProps } from './Landing';
+import { DimensionsProps } from '../pages';
 
 interface HeaderProps {
     animationDelay: number;
@@ -16,9 +16,9 @@ export const Header: React.FC<HeaderProps> = ({
             id="main"
             animation="2s ease-out"
             xInitial={-100}
-            yInitial={-100}
+            yInitial={dimensions.height * 0.04}
             xFinal={dimensions.width * 0.05}
-            yFinal={dimensions.height * 0.05}
+            yFinal={dimensions.height * 0.04}
             animationDelay={animationDelay}
             backgroundColor="transparent">
             <BaseText
@@ -33,9 +33,9 @@ export const Header: React.FC<HeaderProps> = ({
             id="second"
             animation="2s ease-out" 
             xInitial={-100}
-            yInitial={dimensions.height * 0.125}
+            yInitial={dimensions.height * 0.10}
             xFinal={dimensions.width * 0.075}
-            yFinal={dimensions.height * 0.12}
+            yFinal={dimensions.height * 0.10}
             animationDelay={animationDelay}
             backgroundColor="transparent">
             <BaseText
