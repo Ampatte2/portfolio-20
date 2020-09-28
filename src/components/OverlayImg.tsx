@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { flex } from '../globals/Flex';
 
 
-interface OverlayImgProps extends OverlayProps {
+export interface OverlayImgProps extends OverlayProps {
     source?: any;
     backgroundColor:string;
 }

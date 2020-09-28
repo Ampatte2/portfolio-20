@@ -25,7 +25,11 @@ export const Projects = () => {
 
 const StyledIcon = styled.svg`
     width: 3vh;
-    color: white;
+    ${({
+        theme,
+    }): string => `
+        color: ${theme.colors.background};
+    `}
 `;
 
 const ProjectsDiv = styled.div`

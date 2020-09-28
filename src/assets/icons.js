@@ -10,6 +10,7 @@ import { Project } from '@styled-icons/octicons/Project';
 import { Linkedin } from '@styled-icons/fa-brands/Linkedin';
 import { Document } from '@styled-icons/ionicons-sharp/Document';
 import { ArrowBack } from '@styled-icons/ionicons-outline/ArrowBack';
+import { ArrowForward } from '@styled-icons/ionicons-outline/ArrowForward';
 import { Server } from '@styled-icons/fa-solid/Server';
 import { DesignServices } from '@styled-icons/material/DesignServices';
 import { Database } from '@styled-icons/fa-solid/Database';
@@ -29,5 +30,6 @@ export const icons = {
     ArrowBack      : ArrowBack,
     Server         : Server,
     DesignServices : DesignServices,
-    Database       : Database
+    Database       : Database,
+    ArrowForward   : ArrowForward
 };

@@ -18,6 +18,7 @@ export const ProjectsDisplay: React.FC<ProjectsProps> = ({
             width="100%"
             showArrows
             showStatus={false}
+            onChange={(i, item) => console.log(i, item)}
         >
             <OverlayImg
                 source={mtg}

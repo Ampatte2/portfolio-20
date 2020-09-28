@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { AnimatedDivProps } from './AnimatedDiv';
 import { flex } from '../globals/Flex';
 
 export enum ClipTypes {
@@ -8,11 +7,22 @@ export enum ClipTypes {
     CIRCLE = 'circle'
 }
 
-interface AnimatedCircleProps extends AnimatedDivProps {
+interface AnimatedCircleProps extends React.HTMLAttributes<HTMLDivElement> {
     clipStart?: string;
     clipEnd?: string;
     type?: ClipTypes;
     backgroundColor: string;
+    animation?: string;
+    animationDelay?: number;
+    xInitial?: number;
+    yInitial?: number;
+    xFinal?: number;
+    yFinal?: number;
+    id?: string;
+    width?: string;
+    height?: string;
+    widthFinal?: string;
+    heightFinal?: string;
 }
 
 export const AnimatedCircle: React.FC<AnimatedCircleProps> = ({

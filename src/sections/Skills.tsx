@@ -111,8 +111,12 @@ export const SkillsDisplay: React.FC<SkillsDisplayProps> = ({
 
 const StyledIcon = styled.svg`
     width: 7vmin;
-    color: white;
     margin:0 0 20px 0;
+    ${({
+        theme,
+    }): string => `
+        color: ${theme.colors.primary};
+    `}
 `;
 
 const Column    = styled.div`

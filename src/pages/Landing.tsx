@@ -59,14 +59,27 @@ export const Landing = () => {
 
     return (
         <LandingDiv ref={targetRef}>
+            <Link
+                to="/projects"
+                animationDelay={animationDelay}>
+                <BaseText
+                    size="3vmin"
+                    shadow={1}
+                    color="white"
+                    bold
+                    margin="10px">
+                    Projects
+                </BaseText>
+                <ProjectsIcon
+                    as={icons.ArrowForward}
+                />
+            </Link>
+            <Header animationDelay={animationDelay}/>
             <LandingIntro
                 delay={0}
                 dimensions={dimensions}
                 index={index}
                 isChecked={isChecked}/>
-            <Header
-                animationDelay={animationDelay}
-                dimensions={dimensions}/>
             <AboutLinks
                 animationDelay={animationDelay}
                 dimensions={dimensions}/>
@@ -76,9 +89,18 @@ export const Landing = () => {
     );
 };
 
-const StyledIcon = styled.svg`
-    width:6vh;
-    color: white;
+interface LinkProps {
+    animationDelay: number
+}
+
+const ProjectsIcon = styled.svg`
+    width: 3vh;
+    ${({
+        theme,
+    }): string => `
+        color: ${theme.colors.background};
+    `}
+    
 `;
 
 const LandingDiv = styled.div`
@@ -86,10 +108,29 @@ const LandingDiv = styled.div`
     height:100%;
 `;
 
-const Link = styled(L)`
+const Link = styled(L)<LinkProps>`
+    position: fixed;
+    top: 20px;
+    right:20px;
     text-decoration: none;
     cursor: pointer;
     ${flex('center')}
+    animation: LinkSpin 1s ease-in-out forwards;
+    animation-delay: ${props => props.animationDelay + 2}s;
+    opacity:0;
+    @keyframes LinkSpin {
+            0% {
+                
+                transform: rotate(10deg);
+            }
+            40% {
+                transform: rotate(-10deg);
+            }
+            100% {
+                transform: rotate(0deg);
+                opacity:1;
+            }
+    };
     &:hover {
         opacity: 0.75;
     }

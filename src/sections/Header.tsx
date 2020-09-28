@@ -1,49 +1,55 @@
 import React from 'react';
-import { AnimatedDiv, BaseText } from '../components';
-import { DimensionsProps } from '../pages';
+import styled from 'styled-components';
+import { BaseText } from '../components';
+import { flex } from '../globals/Flex';
 
 interface HeaderProps {
     animationDelay: number;
-    dimensions: DimensionsProps
 }
 
 export const Header: React.FC<HeaderProps> = ({
     animationDelay,
-    dimensions,
 }): React.ReactElement => {
-    return <>
-        <AnimatedDiv
-            id="main"
-            animation="2s ease-out"
-            xInitial={-100}
-            yInitial={dimensions.height * 0.04}
-            xFinal={dimensions.width * 0.05}
-            yFinal={dimensions.height * 0.04}
-            animationDelay={animationDelay}
-            backgroundColor="transparent">
-            <BaseText
-                size="5vmin"
-                shadow={1}
-                color="white"
-                bold>
-                Andrew Patterson
-            </BaseText>
-        </AnimatedDiv>
-        <AnimatedDiv 
-            id="second"
-            animation="2s ease-out" 
-            xInitial={-100}
-            yInitial={dimensions.height * 0.10}
-            xFinal={dimensions.width * 0.075}
-            yFinal={dimensions.height * 0.10}
-            animationDelay={animationDelay}
-            backgroundColor="transparent">
-            <BaseText
-                size="4.5vmin"
-                shadow={1}
-                color="white">
-                FullStack Web Developer
-            </BaseText>
-        </AnimatedDiv>
-    </>;
+    return <HeaderDiv animationDelay={animationDelay}> 
+        
+        <BaseText
+            size="5vmin"
+            shadow={1}
+            color="background"
+            bold>
+            Andrew Patterson
+        </BaseText>
+        <BaseText
+            size="4.5vmin"
+            shadow={1}
+            color="primary">
+            FullStack Web Developer
+        </BaseText>
+        
+    </HeaderDiv>;
 };
+
+interface HeaderDivProps{
+    animationDelay?: number;
+}
+
+const HeaderDiv = styled.div<HeaderDivProps>`
+    position: absolute;
+    overflow:hidden;
+    left:50%;
+    top:10%;
+    ${flex('center')}
+    flex-direction: column;
+    transform: translate(-50%, -50%);
+    animation: headerAnimation 2s ease-in-out forwards;
+    animation-delay: ${props => props.animationDelay}s;
+    opacity:0;
+    @keyframes headerAnimation {
+            0% {
+               
+            }
+            100% {
+                opacity: 1;
+            }
+    };
+`;
