@@ -32,12 +32,7 @@ export const AboutLinks: React.FC<AboutLinksProps> = ({
             href="https://www.linkedin.com/in/andrewmpatterson/"
             target="_blank">
             <StyledIcon as={icons.LinkedIn} />
-        </AnchorLink>
-        <AnchorLink
-            href="https://www.linkedin.com/in/andrewmpatterson/"
-            target="_blank">
-            <StyledIcon as={icons.Document} />
-        </AnchorLink>       
+        </AnchorLink>     
     </AnimatedCircle>;
 };
 

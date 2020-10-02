@@ -8,19 +8,22 @@ interface AnchorLinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
     target?: string;
     margin?: string;
     onHover?: string;
+    rel?: string;
 }
 
 export const AnchorLink: React.FC<AnchorLinkProps> = ({
     children,
     target,
     href,
-    onHover = 'opacity: 0.75;',
+    onHover,
+    rel,
     ...props
 }) => {
     return ( 
         <Anchor
             href={href}
             target={target}
+            rel={rel}
             {...props}>
             {children}
         </Anchor>
