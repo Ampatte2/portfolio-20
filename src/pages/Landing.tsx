@@ -1,11 +1,11 @@
 import React, { useState, useLayoutEffect, useRef, useEffect } from 'react';
 import { Link as L } from 'react-router-dom';
 import styled from 'styled-components';
-import { AnimatedBackground, AnchorLink, AnimatedCircle, ClipTypes, BaseText } from '../components';
+import { AnimatedBackground, BaseText } from '../components';
 import { LandingIntro, Header, AboutLinks, SkillsDisplay } from '../sections';
 import { useMounted } from '../utils';
 import { flex } from '../globals/Flex';
-import { icons } from '../assets/icons';
+
 
 export interface DimensionsProps {
     radius: number;
@@ -59,21 +59,6 @@ export const Landing = () => {
 
     return (
         <LandingDiv ref={targetRef}>
-            <Link
-                to="/projects"
-                animationDelay={animationDelay}>
-                <BaseText
-                    size="3vmin"
-                    shadow={1}
-                    color="white"
-                    bold
-                    margin="10px">
-                    Projects
-                </BaseText>
-                <ProjectsIcon
-                    as={icons.ArrowForward}
-                />
-            </Link>
             <Header animationDelay={animationDelay}/>
             <LandingIntro
                 delay={0}
@@ -89,49 +74,9 @@ export const Landing = () => {
     );
 };
 
-interface LinkProps {
-    animationDelay: number
-}
 
-const ProjectsIcon = styled.svg`
-    width: 3vh;
-    ${({
-        theme,
-    }): string => `
-        color: ${theme.colors.background};
-    `}
-    
-`;
 
 const LandingDiv = styled.div`
     width:100%;
     height:100%;
-`;
-
-const Link = styled(L)<LinkProps>`
-    position: fixed;
-    top: 20px;
-    right:20px;
-    text-decoration: none;
-    cursor: pointer;
-    ${flex('center')}
-    animation: LinkSpin 1s ease-in-out forwards;
-    animation-delay: ${props => props.animationDelay + 2}s;
-    opacity:0;
-    @keyframes LinkSpin {
-            0% {
-                
-                transform: rotate(10deg);
-            }
-            40% {
-                transform: rotate(-10deg);
-            }
-            100% {
-                transform: rotate(0deg);
-                opacity:1;
-            }
-    };
-    &:hover {
-        opacity: 0.75;
-    }
 `;

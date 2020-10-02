@@ -30,6 +30,12 @@ const GlobalContext = createGlobalStyle<Props>`
         height: 100%;
         width: 100%;
     }
+    .carousel {
+        border-radius: 5px;
+    }
+    .carousel .slide {
+        background-color: transparent;
+    }
 `;
 
 export const Global: React.FC<GlobalProps> = ({

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { OverlayImg, Button, AnchorLink, BaseText as B } from '../components';
+import { BaseText as B } from '../components';
 import { media } from '../utils';
 import { icons } from '../assets/icons';
 import { flex } from '../globals/Flex';
@@ -16,28 +16,28 @@ export const SkillsDisplay: React.FC<SkillsDisplayProps> = ({
         <Column>
             <StyledIcon as={icons.DesignServices}/>
             <BaseText
-                size="3vmin"
+                size="2.5vmin"
                 shadow={2}
                 color="white"
             >
                 React
             </BaseText>
             <BaseText
-                size="3vmin"
+                size="2.5vmin"
                 shadow={2}
                 color="white"
             >
                 Angular
             </BaseText>
             <BaseText
-                size="3vmin"
+                size="2.5vmin"
                 shadow={2}
                 color="white"
             >
                 Svelte
             </BaseText>
             <BaseText
-                size="3vmin"
+                size="2.5vmin"
                 shadow={2}
                 color="white"
             >
@@ -47,28 +47,28 @@ export const SkillsDisplay: React.FC<SkillsDisplayProps> = ({
         <Column>
             <StyledIcon as={icons.Database}/>
             <BaseText
-                size="3vmin"
+                size="2.5vmin"
                 shadow={2}
                 color="white"
             >
                 Mongoose
             </BaseText>
             <BaseText
-                size="3vmin"
+                size="2.5vmin"
                 shadow={2}
                 color="white"
             >
                 MongoDB
             </BaseText>
             <BaseText
-                size="3vmin"
+                size="2.5vmin"
                 shadow={2}
                 color="white"
             >
                 MySQL
             </BaseText>
             <BaseText
-                size="3vmin"
+                size="2.5vmin"
                 shadow={2}
                 color="white"
             >
@@ -78,28 +78,28 @@ export const SkillsDisplay: React.FC<SkillsDisplayProps> = ({
         <Column>
             <StyledIcon as={icons.Server}/>
             <BaseText
-                size="3vmin"
+                size="2.5vmin"
                 shadow={2}
                 color="white"
             >
                 Node.js
             </BaseText>
             <BaseText
-                size="3vmin"
+                size="2.5vmin"
                 shadow={2}
                 color="white"
             >
                 GraphQL
             </BaseText>
             <BaseText
-                size="3vmin"
+                size="2.5vmin"
                 shadow={2}
                 color="white"
             >
                 Node.js
             </BaseText>
             <BaseText
-                size="3vmin"
+                size="2.5vmin"
                 shadow={2}
                 color="white"
             >
@@ -135,7 +135,7 @@ const SkillsDiv = styled.div<SkillsDisplayProps>`
     top:50%;
     transform: translate(-50%, -40%);
     width:60vw;
-    height:60vh;
+    height:30vh;
     ${({
         animationDelay,
     }): string => `

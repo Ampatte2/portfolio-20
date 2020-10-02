@@ -7,12 +7,14 @@ interface AnchorLinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
     href?: string;
     target?: string;
     margin?: string;
+    onHover?: string;
 }
 
 export const AnchorLink: React.FC<AnchorLinkProps> = ({
     children,
     target,
     href,
+    onHover = 'opacity: 0.75;',
     ...props
 }) => {
     return ( 
@@ -30,7 +32,4 @@ const Anchor = styled.a<AnchorLinkProps>`
     cursor: pointer;
     ${flex('center')}
     margin: ${props => props.margin};
-    &:hover {
-        opacity: 0.75;
-    }
 `;

@@ -18,6 +18,7 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
     animation?: string;
     size?: string;
     margin?: string;
+    shadow?: number;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -33,6 +34,7 @@ export const Button: React.FC<ButtonProps> = ({
     size,
     padding,
     margin,
+    shadow,
     ...props
 }): React.ReactElement => {
     return (
@@ -40,9 +42,12 @@ export const Button: React.FC<ButtonProps> = ({
             disabled={disabled}
             padding={padding}
             animation={animation}
-            onHover={onHover}>
+            onHover={onHover}
+            backgroundColor={backgroundColor}>
             {icon && <Icon as={icon}/>}
-            {children && <BaseText size={size}>{children}</BaseText>}
+            {children && <BaseText
+                size={size}
+                color={color}>{children}</BaseText>}
             {loading && <Loading loading={loading}/>}
         </Main>
     );
@@ -58,13 +63,15 @@ const Main    = styled.button<ButtonProps>`
         border,
         onHover,
         margin,
+        shadow
     }): string => `
         background: ${theme.colors[backgroundColor] || backgroundColor};
         padding: ${padding ? padding: theme.dimensions.padding.default};
         border: ${border || '0px solid transparent'};
+        box-shadow: ${theme.depth[shadow || 0]};
         ${full ? 'width: 100%' : ''};
         &:hover{
-            ${onHover}
+            ${onHover};
         };
         margin: ${margin};
         ${animation};

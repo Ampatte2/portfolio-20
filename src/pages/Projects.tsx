@@ -1,7 +1,7 @@
-import React, { useState, useLayoutEffect, useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import { Link as L } from 'react-router-dom';
 import styled from 'styled-components';
-import { AnimatedBackground, AnchorLink, AnimatedCircle, ClipTypes, BaseText } from '../components';
+import { AnimatedBackground } from '../components';
 import { ProjectsDisplay } from '../sections';
 import { useMounted } from '../utils';
 import { flex } from '../globals/Flex';

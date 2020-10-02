@@ -62,7 +62,7 @@ const Overlay   = styled.a<OverlayProps>`
         height:100%;
     `}
     &:hover{
-        opacity: 0.9;
+        opacity: 1.0;
     }
     
 `;
