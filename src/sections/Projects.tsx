@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { quiz, mtg, portfolio } from '../assets/images';
 import { OverlayImg, Button, AnchorLink, BaseText } from '../components';
-import { flex } from '../globals/Flex';
+import Mixins from '../mixins';
 import { media } from '../utils';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
@@ -73,7 +73,7 @@ export const ProjectsDisplay: React.FC<ProjectsProps> = ({
                         size="h1"
                         backgroundColor="primary"
                         color="background"
-                        onHover="background-color:#663399"
+                        hoverStyle="background-color:#663399"
                     >
                         Code
                     </Button>
@@ -85,7 +85,7 @@ export const ProjectsDisplay: React.FC<ProjectsProps> = ({
                         size="h1"
                         backgroundColor="primary"
                         color="background"
-                        onHover="background-color:#663399">
+                        hoverStyle="background-color:#663399">
                         Demo
                     </Button>
                 </AnchorLink>
@@ -103,7 +103,7 @@ export const ProjectsDisplay: React.FC<ProjectsProps> = ({
                         size="h1"
                         backgroundColor="primary"
                         color="background"
-                        onHover="background-color:#663399"
+                        hoverStyle="background-color:#663399"
                         border="1px solid black"
                     >
                         Code
@@ -123,7 +123,7 @@ export const ProjectsDisplay: React.FC<ProjectsProps> = ({
                         size="h1"
                         backgroundColor="primary"
                         color="background"
-                        onHover="background-color:#663399"
+                        hoverStyle="background-color:#663399"
                     >
                         Code
                     </Button>
@@ -136,7 +136,7 @@ export const ProjectsDisplay: React.FC<ProjectsProps> = ({
                         size="h1"
                         backgroundColor="primary"
                         color="background"
-                        onHover="background-color:#663399"
+                        hoverStyle="background-color:#663399"
                     >
                         Demo
                     </Button>
@@ -183,5 +183,5 @@ const ProjectsDiv = styled.div<ProjectsProps>`
 
 const TitleDiv = styled.div`
     width:100%;
-    ${flex('center')}
+    ${Mixins.flex('center')}
 `;

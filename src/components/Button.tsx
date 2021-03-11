@@ -12,8 +12,7 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
     padding?: string,
     loading?: boolean;
     full?: boolean;
-    onClick?: React.MouseEventHandler;
-    onHover?: string;
+    hoverStyle?: string;
     disabled?: boolean;
     animation?: string;
     size?: string;
@@ -21,6 +20,22 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
     shadow?: number;
 }
 
+/**
+*@param {StyledIcon} icon
+*@param {string} color
+*@param {string} backgroundColor
+*@param {string} border
+*@param {string} padding
+*@param {boolean} loading
+*@param {boolean} full
+*@param {function} onClick
+*@param {string} hoverStyle
+*@param {boolean} disabled
+*@param {string} animation
+*@param {string} size
+*@param {string} margin
+*@param {string} shadow
+**/
 export const Button: React.FC<ButtonProps> = ({
     children,
     icon,
@@ -30,20 +45,22 @@ export const Button: React.FC<ButtonProps> = ({
     loading,
     disabled,
     animation,
-    onHover,
+    hoverStyle,
     size,
     padding,
-    margin,
     shadow,
+    margin,
     ...props
 }): React.ReactElement => {
     return (
         <Main
-            disabled={disabled}
+            disabled={disabled || loading}
             padding={padding}
             animation={animation}
-            onHover={onHover}
-            backgroundColor={backgroundColor}>
+            hoverStyle={hoverStyle}
+            backgroundColor={backgroundColor}
+            margin={margin}
+            {...props}>
             {icon && <Icon as={icon}/>}
             {children && <BaseText
                 size={size}
@@ -56,27 +73,28 @@ export const Button: React.FC<ButtonProps> = ({
 const Main    = styled.button<ButtonProps>`
     ${({
         theme,
+        disabled,
         full,
         padding,
         animation,
         backgroundColor = 'background',
         border,
-        onHover,
+        hoverStyle,
         margin,
         shadow
     }): string => `
+        cursor: ${disabled ? 'wait' : 'pointer'};
         background: ${theme.colors[backgroundColor] || backgroundColor};
         padding: ${padding ? padding: theme.dimensions.padding.default};
         border: ${border || '0px solid transparent'};
         box-shadow: ${theme.depth[shadow || 0]};
         ${full ? 'width: 100%' : ''};
         &:hover{
-            ${onHover};
+            ${hoverStyle};
         };
         margin: ${margin};
         ${animation};
     `}
-    cursor: pointer;
     outline: none;
     overflow: hidden;
     z-index:3;

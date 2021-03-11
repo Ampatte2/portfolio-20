@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { flex } from '../globals/Flex';
+import Mixins from '../mixins';
 
 
 interface AnchorLinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
     href?: string;
     target?: string;
     margin?: string;
-    onHover?: string;
+    hoverStyle?: string;
     rel?: string;
 }
 
@@ -15,7 +15,7 @@ export const AnchorLink: React.FC<AnchorLinkProps> = ({
     children,
     target,
     href,
-    onHover,
+    hoverStyle,
     rel,
     ...props
 }) => {
@@ -33,6 +33,6 @@ export const AnchorLink: React.FC<AnchorLinkProps> = ({
 const Anchor = styled.a<AnchorLinkProps>`
     text-decoration: none;
     cursor: pointer;
-    ${flex('center')}
+    ${Mixins.flex('center')}
     margin: ${props => props.margin};
 `;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { BaseText as B } from '../components';
 import { media } from '../utils';
 import { icons } from '../assets/icons';
-import { flex } from '../globals/Flex';
+import Mixins from '../mixins';
 
 interface SkillsDisplayProps {
     animationDelay?: number;
@@ -120,7 +120,7 @@ const StyledIcon = styled.svg`
 `;
 
 const Column    = styled.div`
-${flex('center')}
+${Mixins.flex('center')}
     flex-direction:column;
     
 `;

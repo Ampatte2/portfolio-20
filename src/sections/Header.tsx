@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { BaseText, HeaderRow as H } from '../components';
-import { flex } from '../globals/Flex';
+import Mixins from '../mixins';
 import { icons } from '../assets/icons';
 
 interface HeaderProps {
@@ -73,7 +73,7 @@ const HeaderDiv = styled.div<HeaderDivProps>`
     left:50%;
     width:100%;
     top:20%;
-    ${flex('center')}
+    ${Mixins.flex('center')}
     flex-direction: column;
     transform: translate(-50%, -50%);
     animation: headerAnimation 2s ease-in-out forwards;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { flex } from '../globals/Flex';
+import Mixins from '../mixins';
 
 
 export interface OverlayImgProps extends OverlayProps {
@@ -52,7 +52,7 @@ const Overlay   = styled.a<OverlayProps>`
     position:absolute;
     top:0;
     left:0;
-    ${flex('center')}
+    ${Mixins.flex('center')}
     ${({
         theme,
         backgroundColor

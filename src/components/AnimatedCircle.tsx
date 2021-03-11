@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { flex } from '../globals/Flex';
+import Mixins from '../mixins';
 
 export enum ClipTypes {
     ELLIPSE = 'ellipse',
@@ -39,7 +39,7 @@ export const AnimatedCircle: React.FC<AnimatedCircleProps> = ({
 const AnimatedCircleDiv = styled.div<AnimatedCircleProps>`
     position: fixed;
     z-index: 2;
-    ${flex('center')};
+    ${Mixins.flex('center')};
     border-radius: 999px;
     width: ${props => props.width};
     height: ${props => props.height};

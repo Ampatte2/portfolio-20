@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { AnimatedIcon } from '../components';
 import { icons } from '../assets/icons';
-import { flex } from '../globals/Flex';
+import Mixins from '../mixins';
 import { media } from '../utils';
 
 const TITLE_ARRAY = ['Github', 'NodeJs', 'Postgresql', 'Docker', 'Typescript', 'MongoDB', 'GraphQL', 'React', 'Andrew Patterson'];
@@ -101,7 +101,7 @@ const Container = styled.div<ContainerProps>`
     margin-left: 0;
     z-index: 1;
     border-radius: 0;
-    ${flex('center')};
+    ${Mixins.flex('center')};
     ${({ theme, ...props }) => `
         background: ${theme.colors.primary};
         ${props.isChecked && `
@@ -121,10 +121,10 @@ const Container = styled.div<ContainerProps>`
 const TitleDiv  = styled.div`
     ${({ theme }) => `
         background: ${theme.colors.background};
-        font-size: ${theme.font.size.h1};
+        font-size: ${theme.font.size.h2};
         color: ${theme.colors.primary};
     `};
-    ${flex('center')};
+    ${Mixins.flex('center')};
     border-radius: 999px;
     width: 25vmin;
     height: 15vmin;

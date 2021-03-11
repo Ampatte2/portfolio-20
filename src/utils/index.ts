@@ -1,2 +1,2 @@
 export * from './useMounted';
-export * from './media';
+export * from '../mixins/media';

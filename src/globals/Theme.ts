@@ -1,3 +1,5 @@
+import { DefaultTheme } from 'styled-components';
+
 export interface ThemeInterface {
     name: string;
     font: {
@@ -93,7 +95,7 @@ export interface ThemeInterface {
     depth: string[];
 }
 
-const Theme: ThemeInterface = {
+const theme: DefaultTheme = {
     name : 'Andrew Patterson',
     font : {
         family     : 'Trebuchet MS',
@@ -180,4 +182,4 @@ const Theme: ThemeInterface = {
     depth: ['none', '0 1px 3px rgba(0,0,0,0.2)', '0 2px 6px rgba(0,0,0,0.3)'],
 };
 
-export default Theme;
+export default theme;

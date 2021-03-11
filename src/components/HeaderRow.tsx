@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { flex } from '../globals/Flex';
+import Mixins from '../mixins';
 
 
 interface HeaderRowProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -23,7 +23,7 @@ export const HeaderRow: React.FC<HeaderRowProps> = ({
 
 const Header = styled.div<HeaderRowProps>`
    ${({ display, padding, margin }): string => `
-        ${flex(display || 'center')}
+        ${Mixins.flex(display || 'center')}
         padding: ${padding};
         margin: ${margin};
     `}

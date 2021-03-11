@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import { OverlayImg, OverlayImgProps } from './OverlayImg';
 import { AnchorLink } from './AnchorLink';
 import { Button } from './Button';
-
-import { flex } from '../globals/Flex';
+import Mixins from '../mixins';
 
 
 interface ProjectContainerProps extends OverlayImgProps, React.HTMLAttributes<HTMLDivElement> {
@@ -18,7 +17,6 @@ export const ProjectContainer: React.FC<ProjectContainerProps> = ({
     target,
     href,
     source,
-    ...props
 }) => {
     return (
         <Container> 
@@ -31,7 +29,7 @@ export const ProjectContainer: React.FC<ProjectContainerProps> = ({
                     margin="0 20px 0 0">
                     <Button
                         size="h1"
-                        onHover="opacity: 1;">
+                        hoverStyle="opacity: 1;">
                         Code
                     </Button>
                 </AnchorLink>
@@ -56,7 +54,7 @@ const Container = styled.div<ContainerProps>`
     cursor: pointer;
     width:100%;
     height:100%;
-    ${flex('center')}
+    ${Mixins.flex('center')}
     &:hover {
         opacity: 0.75;
     }
