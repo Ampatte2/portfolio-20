@@ -7,11 +7,13 @@ import { Landing, Projects, About, Init } from './pages';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { DefaultTheme } from 'styled-components';
 import { StyledTransition, selectPathTransition, Paths } from './transitions';
+import Mixins from './mixins';
 
 const globalStyle = (theme: DefaultTheme) => `
   body {
       flex-direction:column;
       background-color: ${theme.colors.background};
+      ${Mixins.scroll}
   }
   #modal {
       z-index: 1;
@@ -39,7 +41,6 @@ function App () {
             >
                 <StyledTransition
                     key={location.key}
-                    
                 >
                     <Switch location={location}>
                         <Route

@@ -14,7 +14,7 @@ interface IInit {
 //     Init
 //             </Button>;
 
-const INIT_MESSAGES = ['cd Andrew/dev', 'React.sh', 'React-Native.sh', 'GraphQL.sh'];
+const INIT_MESSAGES = ['cd Andrew/dev', './react.sh', './react-native.sh', './graphQL.sh', './node.sh', 'Portfolio now running...'];
 
 export const Init : React.FC<IInit> = ({
     
@@ -26,32 +26,37 @@ export const Init : React.FC<IInit> = ({
     const navToProject                            = () => {
         history.push('/home');
     };
-    const { wordArray, wordIndex }                = useTypeWriter(INIT_MESSAGES, 100);
+    const { wordArray, wordIndex }                = useTypeWriter(INIT_MESSAGES, 150, navToProject);
+    
     
     
     useEffect(() => {
         const incrementLoadingBar = () => {
-            const nextLoadingBarWidth = loadingBarWidth + 20;
-            if (nextLoadingBarWidth < 300) {
-                setLoadingBarWidth(loadingBarWidth + 20);
-            } else {
-                clearInterval(loadingInterval);
-                loadingInterval = undefined;
-                setLoadingBarWidth(0);
-            }
+            setLoadingBarWidth(currentBar => {
+                const newLoadingBarWidth = currentBar + 20;
+                if (newLoadingBarWidth < 300) {
+                    loadingInterval = setTimeout(incrementLoadingBar, 20);
+                    return newLoadingBarWidth;
+                } else {
+                    clearTimeout(loadingInterval);
+                    loadingInterval = undefined;
+                    return 0;
+                }
+            });
         };
-        if (wordIndex < wordArray.length -1) {
-            loadingInterval = setInterval(incrementLoadingBar, 20);
+        console.log(wordIndex, currentWordIndex);
+        if (wordIndex === currentWordIndex) {
+            setCurrentWordIndex(current => current + 1);
+            incrementLoadingBar();
         }
-        return () => clearInterval(loadingInterval);
-    }, [wordIndex, loadingBarWidth]);
+    }, [wordIndex, currentWordIndex]);
 
 
     return (
         <LandingDiv>
             <TextDiv>
                 {wordArray.map(word => <InitText
-                    type='h1'
+                    size='h3'
                     color='#39ff14'
                 >
                     {word}
@@ -85,6 +90,7 @@ const TextDiv  = styled.div`
     ${Mixins.flex('column', 'flex-start')}
 `;
 const InitText = styled(BaseText)`
+    font-family: Ubuntu Mono;
     width: 100%;
     text-align: left;
 `;

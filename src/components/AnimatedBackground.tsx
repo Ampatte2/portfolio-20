@@ -4,33 +4,30 @@ import { top, bot, mid } from '../assets/images';
 
 export const AnimatedBackground: React.FC = (): React.ReactElement => {
     return (
-        <>
-            <Wrapper>
-                <WrapperInner
-                    index={15}
-                    opacity={0.5}>
-                    <Wave
-                        img={top}
-                        time={3}
-                        size="50% 100px"/>
-                </WrapperInner>
-                <WrapperInner
-                    index={10}
-                    opacity={0.75}>
-                    <Wave
-                        img={mid}
-                        time={10}
-                        size="50% 120px" />
-                </WrapperInner>
-                <WrapperInner index={5}>
-                    <Wave
-                        img={bot}
-                        time={15}
-                        size="50% 100px"/>
-                </WrapperInner>
-            </Wrapper>
-        
-        </>
+        <Wrapper>
+            <WrapperInner
+                index={15}
+                opacity={0.5}>
+                <Wave
+                    img={top}
+                    time={3}
+                    size="50% 100px"/>
+            </WrapperInner>
+            <WrapperInner
+                index={10}
+                opacity={0.75}>
+                <Wave
+                    img={mid}
+                    time={10}
+                    size="50% 120px" />
+            </WrapperInner>
+            <WrapperInner index={5}>
+                <Wave
+                    img={bot}
+                    time={15}
+                    size="50% 100px"/>
+            </WrapperInner>
+        </Wrapper>
     );
 };
 

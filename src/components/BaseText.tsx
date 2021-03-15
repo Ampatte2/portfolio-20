@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 
 export interface BaseTextProps extends React.HTMLAttributes<HTMLParagraphElement>{
     color?: string;
@@ -14,11 +14,18 @@ export interface BaseTextProps extends React.HTMLAttributes<HTMLParagraphElement
 export const BaseText: React.FC<BaseTextProps> = ({
     children,
     type = 'span',
+    size,
     ...props
 }): React.ReactElement => {
+    const theme  = useTheme();
+    let fontSize = size;
+    if (Object.keys(theme.font.size).includes(type)) {
+        fontSize = type;
+    }
     return (
         <Text
             as={type}
+            size={fontSize}
             {...props}>
             {children}
         </Text>

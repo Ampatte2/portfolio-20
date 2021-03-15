@@ -4,6 +4,7 @@ import { media } from './media';
 import { position } from './position';
 import { transform } from './transform';
 import { transition } from './transition';
+import { scroll } from './scroll';
 
 const Mixins = {
     flex,
@@ -11,7 +12,8 @@ const Mixins = {
     media,
     position,
     transform,
-    transition
+    transition,
+    scroll
 };
 
 export default Mixins;
