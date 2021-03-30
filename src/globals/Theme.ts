@@ -163,6 +163,7 @@ const theme: DefaultTheme = {
         secondary  : '#B9BFFF',
         tertiary   : '#663399',
         background : '#ffffff',
+        grey       : '#D3D3D3'
     },
     input: {
         default : '#f5f5f5',

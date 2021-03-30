@@ -10,6 +10,9 @@ interface INavigationProps {
     navigationRightText?: string;
 }
 
+const LINE_HEIGHT  = '1rem';
+const HEADING_SIZE = 'h4';
+
 export const Navigation : React.FC<INavigationProps> = ({
     navigationLeft,
     navigationRight,
@@ -23,7 +26,9 @@ export const Navigation : React.FC<INavigationProps> = ({
             <NavigationArrowSegment/>
             <HiddenTextLeft
                 bold
-                lineHeight='1rem'>{navigationLeftText}</HiddenTextLeft>
+                lineHeight={LINE_HEIGHT}
+                size={HEADING_SIZE}
+            >{navigationLeftText}</HiddenTextLeft>
             <NavigationArrowSegment2/>
         </NavigationContainerLeft>}
         {navigationRight && <NavigationContainerRight
@@ -32,7 +37,9 @@ export const Navigation : React.FC<INavigationProps> = ({
             <NavigationArrowSegment3/>
             <HiddenTextRight
                 bold
-                lineHeight='1rem'> {navigationRightText}</HiddenTextRight>
+                lineHeight={LINE_HEIGHT}
+                size={HEADING_SIZE}
+            > {navigationRightText}</HiddenTextRight>
             <NavigationArrowSegment4/>
         </NavigationContainerRight>
         }
@@ -40,73 +47,75 @@ export const Navigation : React.FC<INavigationProps> = ({
 );
 
 const NavigationContainerLeft = styled.div`
-    ${Mixins.position('fixed', 0, '45vh', 'auto', 0, '5px')} 
+    ${Mixins.position('fixed', 0, '45vh', 'auto', 0, '5px')}
+    cursor: pointer;
     height: 10vh;
     width: 50px;
 `;
 
 const NavigationContainerRight = styled.div`
     ${Mixins.position('fixed', 0, '45vh', '5px', 0, 'auto')}
+    cursor: pointer;
     height: 10vh;
     width: 50px;
 `;
 const NavigationArrowSegment   = styled.div`
+    ${({ theme }) => `background-color: ${theme.colors.primary};`}
     transition: transform 200ms ease-in;
     transform-origin: bottom left;
     transform: rotate(40deg);
     ${NavigationContainerLeft}:hover & {
         transform-origin: bottom left;
-        ${Mixins.transform([{ transformation: 'rotate', value: '90deg' }, { transformation: 'translateX', value: '-20px' }])};
+        ${Mixins.transform([{ transformation: 'rotate', value: '90deg' }, { transformation: 'translateX', value: '-30px' }])};
     };
-    ${Mixins.position('fixed', 0, '47vh', 0, 0, '5px')}
-    background-color: black;
+    ${Mixins.position('fixed', 0, 'calc(50vh - 40px)', 0, 0, '5px')}
     width: 4px;
-    height: 3vh;
+    height: 40px;
 `;
 const NavigationArrowSegment2  = styled.div`
+    ${({ theme }) => `background-color: ${theme.colors.primary};`}
     transition: transform 200ms ease-in;
     transform-origin: top left;
     transform: rotate(-40deg);
     ${NavigationContainerLeft}:hover & {
         transform-origin: top left;
-        ${Mixins.transform([{ transformation: 'rotate', value: '-90deg' }, { transformation: 'translateX', value: '-20px' }])};
+        ${Mixins.transform([{ transformation: 'rotate', value: '-90deg' }, { transformation: 'translateX', value: '-30px' }])};
     };
     ${Mixins.position('fixed', 0, '50vh', 0, 0, '5px')}
-    background-color: black;
     width: 4px;
-    height: 3vh;
+    height: 40px;
 `;
 
 const NavigationArrowSegment3 = styled.div`
-    background-color: black;
+    ${({ theme }) => `background-color: ${theme.colors.primary};`}
     transition: transform 200ms ease-in;
     transform-origin: bottom right;
     transform: rotate(-40deg);
     ${NavigationContainerRight}:hover & {
         transform-origin: bottom right;
-        ${Mixins.transform([{ transformation: 'rotate', value: '-90deg' }, { transformation: 'translateX', value: '20px' }])};
+        ${Mixins.transform([{ transformation: 'rotate', value: '-90deg' }, { transformation: 'translateX', value: '30px' }])};
     };
-    ${Mixins.position('fixed', 0, '47vh', '5px', 0, 'auto')}
+    ${Mixins.position('fixed', 0, 'calc(50vh - 40px)', '5px', 0, 'auto')}
     width: 4px;
-    height: 3vh;
+    height: 40px;
 `;
 
 const NavigationArrowSegment4 = styled.div`
-    background-color: black;
+    ${({ theme }) => `background-color: ${theme.colors.primary};`}
     transition: transform 200ms ease-in;
     transform-origin: top right;
     transform: rotate(40deg);
     ${NavigationContainerRight}:hover & {
         transform-origin: top right;
-        ${Mixins.transform([{ transformation: 'rotate', value: '90deg' }, { transformation: 'translateX', value: '20px' }])};
+        ${Mixins.transform([{ transformation: 'rotate', value: '90deg' }, { transformation: 'translateX', value: '30px' }])};
     };
     ${Mixins.position('fixed', 0, '50vh', '5px', 0, 'auto')}
     width: 4px;
-    height: 3vh;
+    height: 40px;
 `;
 
 const HiddenTextLeft = styled(BaseText)`
-    color: black;
+    ${({ theme }) => `color: ${theme.colors.primary};`}
     transition: transform 200ms ease-in;
     height: 1rem;
     width: fit-content;
@@ -121,7 +130,7 @@ const HiddenTextLeft = styled(BaseText)`
 `;
 
 const HiddenTextRight = styled(BaseText)`
-    color: black;
+    ${({ theme }) => `color: ${theme.colors.primary};`}
     transition: transform 200ms ease-in;
     height: 1rem;
     width: fit-content;

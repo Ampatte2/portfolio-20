@@ -7,6 +7,7 @@ interface HeaderRowProps extends React.HTMLAttributes<HTMLDivElement> {
     display?: string;
     padding?: string;
     margin?: string;
+    width?: string;
 }
 
 export const HeaderRow: React.FC<HeaderRowProps> = ({
@@ -22,9 +23,12 @@ export const HeaderRow: React.FC<HeaderRowProps> = ({
 };
 
 const Header = styled.div<HeaderRowProps>`
-   ${({ display, padding, margin }): string => `
-        ${Mixins.flex(display || 'center')}
+   ${({ display, padding, margin, width }): string => { 
+        const flexDisplay = display ? Mixins.flex(display) : Mixins.flex('row', 'space-between', 'center');
+        return `
+        ${flexDisplay}
         padding: ${padding};
         margin: ${margin};
-    `}
+        width: ${width};
+    `;}}
 `;

@@ -6,7 +6,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 *@param {string} rightPath - path to navigate on swipe right
 *@param {string} leftPath - path to navigate on swipe left 
 **/
-export const useSwipeNavigation = (rightPath: string, leftPath: string) => {
+export const useSwipeNavigation = (leftPath: string, rightPath: string) => {
     const history = useHistory();
     //prevents double navigation from page
     const [isNavigating, setIsNavigating] = useState(false);

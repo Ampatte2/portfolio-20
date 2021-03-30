@@ -1,12 +1,11 @@
 import React, { useRef, useState } from 'react';
 import { Link as L, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { Button, BaseText, HeaderRow, Navigation } from '../components';
+import { Button, BaseText, FlipCard, Navigation } from '../components';
 import { Paths } from '../transitions';
 import { useMounted, useSwipeNavigation } from '../utils';
 import Mixins from '../mixins';
-import ReactLoading, { LoadingType } from 'react-loading';
-import { icons } from '../assets/icons';
+import ReactLoading from 'react-loading';
 
 export const Projects = () => {
     const [left, right]             = useSwipeNavigation(Paths.About, Paths.Home);
@@ -22,7 +21,7 @@ export const Projects = () => {
             />
             <BaseText
                 type='h1'
-                
+                margin='10px'
             >
                 Magic the Gathering Deck Builder
             </BaseText>
@@ -79,5 +78,9 @@ const ProjectIframe = styled.iframe<IProjectIframeContainerProps>`
     width: 100%;
     height: 100%;
     background-color: white;
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: 1px 1px 3px 3px rgba(0, 0, 255, .2);
     ${Mixins.scroll}
 `;

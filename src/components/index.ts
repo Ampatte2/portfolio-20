@@ -7,3 +7,4 @@ export * from './AnchorLink';
 export * from './OverlayImg';
 export * from './HeaderRow';
 export * from './Navigation';
+export * from './FlipCard';
