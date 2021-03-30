@@ -6,7 +6,7 @@ export const StyledTransition = transition.div`
     position: absolute;
     top: 0;
     left: 0;
-    opacity: 0.5;
+    opacity: 0;
     transition: all ${props => props.timeout}ms ease-in;
   }
   &:enter-active {
@@ -14,7 +14,7 @@ export const StyledTransition = transition.div`
     opacity: 1;
   }
   &:exit {
-   opacity: 0.7;
+   opacity: 0;
    transition: all ${props => props.timeout}ms ease-in;
   }
   &:exit-active {

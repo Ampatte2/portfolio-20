@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { quiz, mtg, portfolio } from '../assets/images';
 import { OverlayImg, Button, AnchorLink, BaseText } from '../components';
 import Mixins from '../mixins';
-import { media } from '../utils';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 
@@ -171,7 +170,7 @@ const ProjectsDiv = styled.div<ProjectsProps>`
                     }
                 } `
 };
-    ${media(
+    ${Mixins.media(
         'tablet',
         `
         top:50%;

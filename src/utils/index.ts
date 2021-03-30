@@ -1,2 +1,3 @@
 export * from './useMounted';
-export * from '../mixins/media';
+export * from './useSwipeNavigation';
+export * from './useTypeWriter';

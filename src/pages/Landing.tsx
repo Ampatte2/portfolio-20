@@ -1,10 +1,10 @@
 import React, { useState, useLayoutEffect, useRef, useEffect } from 'react';
 import { Link as L, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { AnimatedBackground, BaseText, Button } from '../components';
-import { LandingIntro, Header, AboutLinks, SkillsDisplay } from '../sections';
+import { AnimatedBackground, BaseText, Button, Navigation } from '../components';
+import { Paths } from '../transitions';
 import Mixins from '../mixins';
-import { useMounted } from '../utils';
+import { useMounted, useSwipeNavigation } from '../utils';
 
 export interface DimensionsProps {
     radius: number;
@@ -14,19 +14,15 @@ export interface DimensionsProps {
 }
 
 export const Landing = () => {
-    const targetRef                 = useRef<HTMLDivElement>(null);
-    const [isLoading, setIsLoading] = useState(false);
-    const isMounted                 = useMounted();
-    const history                   = useHistory();
-
-    const navToProject = () => {
-        setIsLoading(true);
-        history.push('/projects');
-    };
-
+    const [left, right] = useSwipeNavigation(Paths.Projects, Paths.About);
+    
 
     return (
-        <LandingDiv ref={targetRef}>
+        <LandingDiv>
+            <Navigation
+                navigationLeft={left}
+                navigationRight={right}
+            />
             <BaseText
                 type='h1'
             >
@@ -42,12 +38,6 @@ export const Landing = () => {
             >
                 I have a passion for designing a great user experience
             </BaseText>
-            <Button
-                backgroundColor='blue'
-                onClick={navToProject}
-                loading={isLoading}>
-                Home
-            </Button>
         </LandingDiv>
     );
 };

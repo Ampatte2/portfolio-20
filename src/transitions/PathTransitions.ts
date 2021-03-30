@@ -24,6 +24,20 @@ export const PathTransitions = {
     }
 };
 
+export const selectForwardOrBackward = (forward: boolean) => {
+    if (forward) {
+        return  {
+            transformation : [{ transformation: 'translateX', value: '100%' }],
+            timeout        : 800
+        };
+    } else {
+        return  {
+            transformation : [{ transformation: 'translateX', value: '-100%' }],
+            timeout        : 800
+        };
+    }
+};
+
 export const selectPathTransition = (pathName: string) => {
     switch (pathName) {
     case Paths.Projects:

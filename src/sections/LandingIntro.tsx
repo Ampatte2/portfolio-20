@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { AnimatedIcon } from '../components';
 import { icons } from '../assets/icons';
 import Mixins from '../mixins';
-import { media } from '../utils';
 
 const TITLE_ARRAY = ['Github', 'NodeJs', 'Postgresql', 'Docker', 'Typescript', 'MongoDB', 'GraphQL', 'React', 'Andrew Patterson'];
 
@@ -129,7 +128,7 @@ const TitleDiv  = styled.div`
     width: 25vmin;
     height: 15vmin;
     border: 1px solid transparent;
-    ${media(
+    ${Mixins.media(
         'tablet',
         `
         width:35vw;

@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Theme from './globals/Theme';
 import { Global } from './globals/Global';
-import { Location } from 'history';
-import { Switch, Route, useLocation } from 'react-router-dom';
+import { withTouch } from './globals/withTouch';
+import { Switch, Route, useLocation, Redirect } from 'react-router-dom';
 import { Landing, Projects, About, Init } from './pages';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { DefaultTheme } from 'styled-components';
-import { StyledTransition, selectPathTransition, Paths } from './transitions';
+import { StyledTransition, selectForwardOrBackward, selectPathTransition, Paths } from './transitions';
 import Mixins from './mixins';
 
 const globalStyle = (theme: DefaultTheme) => `
@@ -23,13 +23,23 @@ const globalStyle = (theme: DefaultTheme) => `
   }
 `;
 
-function App () {
-    const location = useLocation();
+interface ILocationState {
+    forward : boolean
+}
+
+export default withTouch(() =>  {
+    const location = useLocation<ILocationState>();
 
     const childTransitionFactory = (child: React.ReactElement<any, string | React.JSXElementConstructor<any>>) => {
-        const currentTransitions = selectPathTransition(location.pathname);
+        let currentTransitions;
+        if (location.state) {
+            currentTransitions = selectForwardOrBackward(location.state.forward);
+        } else {
+            currentTransitions = selectPathTransition(location.pathname);
+        }
         return React.cloneElement(child, currentTransitions);
     };
+
     return (
         <Global
             style={globalStyle}
@@ -60,6 +70,4 @@ function App () {
             </TransitionGroup>
         </Global>
     );
-}
-
-export default App;
+});

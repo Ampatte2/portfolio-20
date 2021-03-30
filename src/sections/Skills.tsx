@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { BaseText as B } from '../components';
-import { media } from '../utils';
 import { icons } from '../assets/icons';
 import Mixins from '../mixins';
 
@@ -153,7 +152,7 @@ const SkillsDiv = styled.div<SkillsDisplayProps>`
                     }
                 } `
 };
-    ${media(
+    ${Mixins.media(
         'tablet',
         `
         width:90vw;
