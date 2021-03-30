@@ -17,6 +17,8 @@ export const About : React.FC<IAboutProps> = ({
             <Navigation
                 navigationLeft={left}
                 navigationRight={right}
+                navigationLeftText='Home'
+                navigationRightText='Project'
             />
         </LandingDiv>
     );

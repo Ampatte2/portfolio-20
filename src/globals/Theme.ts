@@ -98,7 +98,7 @@ export interface ThemeInterface {
 const theme: DefaultTheme = {
     name : 'Andrew Patterson',
     font : {
-        family     : 'Trebuchet MS',
+        family     : 'Georgia',
         lineHeight : 1.6,
         size       : {
             default : '1rem',

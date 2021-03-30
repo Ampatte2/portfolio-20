@@ -17,6 +17,8 @@ export const Projects = () => {
             <Navigation
                 navigationLeft={left}
                 navigationRight={right}
+                navigationLeftText='About'
+                navigationRightText='Home'
             />
             <BaseText
                 type='h1'

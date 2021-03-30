@@ -22,21 +22,23 @@ export const Landing = () => {
             <Navigation
                 navigationLeft={left}
                 navigationRight={right}
+                navigationLeftText='Projects'
+                navigationRightText='About'
             />
             <BaseText
                 type='h1'
             >
-                My name is Andrew Patterson
+                Hi I'm Andrew
             </BaseText>
             <BaseText
                 size='h3'
             >
-                I am an experienced Javascript/Typescript React Developer
+                I am a developer
             </BaseText>
             <BaseText
                 size='h3'
             >
-                I have a passion for designing a great user experience
+                I am a psychologist
             </BaseText>
         </LandingDiv>
     );
