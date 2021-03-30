@@ -14,7 +14,7 @@ interface IInit {
 //     Init
 //             </Button>;
 
-const INIT_MESSAGES = ['cd Andrew/dev', './react.sh', './react-native.sh', './graphQL.sh', './node.sh', 'Portfolio now running...'];
+const INIT_MESSAGES = ['cd Andrew/dev', 'cd /typescript', './strongly-typed.sh', 'cd ..', './web-mobile-swipe.sh', 'Portfolio now running...'];
 
 export const Init : React.FC<IInit> = ({
     
@@ -26,7 +26,7 @@ export const Init : React.FC<IInit> = ({
     const navToProject                            = () => {
         history.push('/home');
     };
-    const { wordArray, wordIndex }                = useTypeWriter(INIT_MESSAGES, 150, navToProject);
+    const { wordArray, wordIndex }                = useTypeWriter(INIT_MESSAGES, 100, navToProject);
     
     
     
