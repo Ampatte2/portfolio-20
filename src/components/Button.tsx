@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import { LoaderAlt } from '@styled-icons/boxicons-regular/LoaderAlt';
 import { BaseText } from './index';
@@ -20,22 +20,6 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
     shadow?: number;
 }
 
-/**
-*@param {StyledIcon} icon
-*@param {string} color
-*@param {string} backgroundColor
-*@param {string} border
-*@param {string} padding
-*@param {boolean} loading
-*@param {boolean} full
-*@param {function} onClick
-*@param {string} hoverStyle
-*@param {boolean} disabled
-*@param {string} animation
-*@param {string} size
-*@param {string} margin
-*@param {string} shadow
-**/
 export const Button: React.FC<ButtonProps> = ({
     children,
     icon,
@@ -52,6 +36,18 @@ export const Button: React.FC<ButtonProps> = ({
     margin,
     ...props
 }): React.ReactElement => {
+    const renderChildren = useCallback(() => {
+        if (children && !loading) {
+            return <BaseText
+                size={size}
+                color={color}>{children}</BaseText>;
+        } else if (loading) {
+            return <Loading loading={loading}/>;
+        } else {
+            return <></>;
+        }
+
+    }, [loading, children, size, color]);
     return (
         <Main
             disabled={disabled || loading}
@@ -62,10 +58,7 @@ export const Button: React.FC<ButtonProps> = ({
             margin={margin}
             {...props}>
             {icon && <Icon as={icon}/>}
-            {children && <BaseText
-                size={size}
-                color={color}>{children}</BaseText>}
-            {loading && <Loading loading={loading}/>}
+            {renderChildren()}
         </Main>
     );
 };
@@ -83,7 +76,8 @@ const Main    = styled.button<ButtonProps>`
         margin,
         shadow
     }): string => `
-        cursor: ${disabled ? 'wait' : 'pointer'};
+        cursor: ${disabled ? 'not-allowed' : 'pointer'};
+        opacity: ${disabled ? '0.8' : '1'};
         background: ${theme.colors[backgroundColor] || backgroundColor};
         padding: ${padding ? padding: theme.dimensions.padding.default};
         border: ${border || '0px solid transparent'};
@@ -103,8 +97,8 @@ const Main    = styled.button<ButtonProps>`
 `;
 const Loading = styled(LoaderAlt)<{ loading: boolean }>`
     animation: spin 1s linear 0s infinite;
-    height: 14px;
-    width: 14px;
+    height: 20px;
+    width: 20px;
     opacity: 0;
     transition: opacity .25s ease-in-out;
     @keyframes spin {
@@ -115,6 +109,7 @@ const Loading = styled(LoaderAlt)<{ loading: boolean }>`
             transform: rotate(360deg);
         }
     }
+    ${({ theme }) => `color: ${theme.colors.background};`}
     ${({ loading }): string =>
         loading
             ? `

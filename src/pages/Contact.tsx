@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import styled from 'styled-components';
 import { useMounted, useSwipeNavigation } from '../utils';
-import { HeaderRow, Input, ParallaxStars, Navigation } from '../components';
+import { HeaderRow, Input, ParallaxStars, Navigation, ContactForm } from '../components';
 import { Paths } from '../transitions';
 import Mixins from '../mixins';
 import emailjs from 'emailjs-com';
@@ -29,21 +29,10 @@ interface IContactProps {
 export const Contact : React.FC<IContactProps> = ({
     
 }): React.ReactElement => {
-    const [left, right] = useSwipeNavigation(Paths.Projects, Paths.Home);
-    const {
-        values,
-        errors,
-        dirty,
-        handleChange,
-        setFieldValue,
-        isValid,
-    } = useFormik({
-        initialValues      : initialEmailForm,
-        validate           : validateEmailForm,
-        validateOnChange   : true,
-        onSubmit           : () => {},
-        enableReinitialize : true,
-    });
+    const [left, right]           = useSwipeNavigation(Paths.Projects, Paths.Home);
+    const emailContactInformation = (emailFormValues: IEmail) => {
+        console.log(emailFormValues);
+    };
     
     return (
         <ContactDiv>
@@ -54,37 +43,7 @@ export const Contact : React.FC<IContactProps> = ({
                 navigationRightText='Home'
             />
             <ParallaxStars/>
-            <Input
-                type='text'
-                name='name' 
-                label='Name'
-                onChange={handleChange}
-                value={values.name}
-            />
-            <Input
-                type='tel'
-                name='phone_number' 
-                label='Phone Number'
-                onChange={handleChange}
-                value={values.phone_number}
-                isError={errors.phone_number}
-            />
-            <Input
-                type='text'
-                name='message'
-                label='Message'
-                onChange={handleChange}
-                value={values.message}
-                isError={errors.message}
-            />
-            <Input
-                type='email'
-                name='email_address'
-                label='Email'
-                onChange={handleChange}
-                value={values.email_address}
-                isError={errors.email_address}
-            />
+            <ContactForm onSubmit={emailContactInformation}/>
         </ContactDiv>
     );
 };

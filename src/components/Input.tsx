@@ -20,7 +20,10 @@ export const Input : React.FC<IInputProps> = ({
     ...props
 }): React.ReactElement => (
     <InputContainer>
-        {label && <Label>{label}</Label>}
+        {label && <BaseText
+            size='h6'
+            bold
+            margin='0px auto 5px 0px'>{label}</BaseText>}
         <InputElement 
             isError={!!isError}
             isSuccess={isSuccess}
@@ -28,7 +31,8 @@ export const Input : React.FC<IInputProps> = ({
         />
         <ErrorLabel
             id={`${name}-error`}
-            isError={!!isError}>
+            isError={!!isError}
+        >
             {isError}
         </ErrorLabel>
     </InputContainer>
@@ -37,6 +41,7 @@ export const Input : React.FC<IInputProps> = ({
 const InputContainer = styled.div`
     ${Mixins.transition(['opacity'])}
     ${Mixins.flex('column')}
+    width: 100%;
 `;
 
 interface IInputElementProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -45,6 +50,7 @@ interface IInputElementProps extends React.InputHTMLAttributes<HTMLInputElement>
 }
 
 const InputElement = styled.input<IInputElementProps>`
+    width: 100%;
     ${Mixins.transition(['background-color', 'opacity', 'box-shadow'])}
     font-size: 0.85rem;
     font-weight: bold;
@@ -63,45 +69,42 @@ const InputElement = styled.input<IInputElementProps>`
         border-radius: ${theme.dimensions.radius};
         font-family: ${theme.font.family};
         &:focus {
-            box-shadow: ${theme.depth[1]};
+            box-shadow: ${theme.depth[2]};
         }
     `}
 
     // Background color
     ${({ theme, isError, isSuccess }): string => {
         if (isError) {
-            return `background-color: ${theme.input.error};`;
+            return `background-color: ${theme.input.error}80;`;
         } else if (isSuccess) {
             return `background-color: ${theme.input.success};`;
         } else {
-            return `background-color: ${theme.input.default};`;
+            return `background-color: ${theme.colors.grey};`;
         }
     }};
-`;
-
-const Label = styled.label`
-    font-size: 0.9rem;
-    font-weight: bold;
-    margin-bottom: 5px;
 `;
 
 interface IErrorLabel {
     isError? : boolean;
 }
 
-const ErrorLabel = styled(Label)<IErrorLabel>`
+const ErrorLabel = styled(BaseText)<IErrorLabel>`
     ${Mixins.transition(['max-height', 'opacity'])}
     overflow: hidden;
-    margin-top: 5px;
     max-height: 0;
+    width: 100%;
     opacity: 0;
-    color: red;
-    transition: all 0.3s linear;
+    transition: all 250ms linear;
+    text-align: center;
+    ${({ theme }): string => `
+        color: ${theme.input.error};
+    `}
     ${({ isError }): string =>
         isError
             ? `
-        max-height: 20px;
+        max-height: 30px;
         opacity: 1;
     `
-            : ''}
+            : 'max-height: 0;'}
 `;

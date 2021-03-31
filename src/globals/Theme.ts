@@ -168,7 +168,7 @@ const theme: DefaultTheme = {
     input: {
         default : '#f5f5f5',
         success : '#f5fff5',
-        error   : '#fff5f5',
+        error   : '#dc3545',
     },
     media: {
         tablet : 1160,
