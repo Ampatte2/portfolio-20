@@ -57,7 +57,7 @@ const IframeContainer = styled.div`
 
 const LoadingBar = styled(ReactLoading)`
     ${Mixins.position('fixed')}
-    z-index: 10;
+    z-index: 8;
 `;
 
 const ProjectsDiv = styled.div`

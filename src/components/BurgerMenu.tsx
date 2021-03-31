@@ -24,35 +24,35 @@ export const BurgerMenu : React.FC<IBurgerMenuProps> = ({
             onClick={() => setIsOpen(!isOpen)}>
             <BurgerLine
                 isOpen={isOpen}
-                isOpenTransform='rotate(45deg)'
+                openTransform='rotate(45deg)'
                 initialTransform='rotate(0)'/>
             <BurgerLine
                 isOpen={isOpen}
-                isOpenTransform='translateX(20px)'
-                initialTransform='translateX(0)'/>
+                openTransform='translateX(20px)'
+                initialTransform='translateX(0)'
+                isCenter/>
             <BurgerLine
                 isOpen={isOpen}
-                isOpenTransform='rotate(-45deg)'
+                openTransform='rotate(-45deg)'
                 initialTransform='rotate(0)'/>
         </Burger>
     );
 };
 
 const Burger = styled.button<IBurgerProps>`
-  position: absolute;
+  position: fixed;
   top: 20px;
-  right: 2rem;
+  right: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 2rem;
-  height: 2rem;
+  width: 20px;
+  height: 30px;
   background: transparent;
   border: none;
   cursor: pointer;
   padding: 0;
   z-index: 10;
-  
   &:focus {
     outline: none;
   }
@@ -60,25 +60,27 @@ const Burger = styled.button<IBurgerProps>`
 
 interface IBurgerLineProps extends IBurgerProps {
     initialTransform : string;
-    isOpenTransform : string;
+    openTransform : string;
+    isCenter?: boolean;
 }
 
 const BurgerLine = styled.div<IBurgerLineProps>`
-    width: 2rem;
-    height: 0.25rem;
+    width: 30px;
+    height: 5px;
     background: ${({ theme }) => theme.colors.primary};
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
     transform-origin: 1px;
-    ${({ isOpen, isOpenTransform, initialTransform }) => `
-        transform: ${isOpen ? isOpenTransform : initialTransform};
+    ${({ isOpen, isCenter, openTransform, initialTransform }) => `
+        transform: ${isOpen ? openTransform : initialTransform};
+        opacity: ${(isCenter && isOpen) ? '0' : '1'}
     `}
 `;
 
-// ${({ isOpen, isOpenTransform, initialTransform }) => `
+// ${({ isOpen, openTransform, initialTransform }) => `
 //         transform: ${initialTransform};
 //         ${Burger}:hover & {
-//             transform: ${isOpenTransform};
+//             transform: ${openTransform};
 //         };
 //     `}

@@ -60,7 +60,9 @@ export default withTouch(() =>  {
                     <BurgerMenu
                         isOpen={isOpen}
                         setIsOpen={setIsOpen}/>
-                    <NavigationMenu isOpen={isOpen}/>
+                    <NavigationMenu 
+                        isOpen={isOpen}
+                        setIsOpen={setIsOpen}/>
                     <Switch location={location}>
                         <Route
                             path={Paths.Projects}
