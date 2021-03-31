@@ -52,6 +52,7 @@ export const ContactForm : React.FC<IContactFormProps> = ({
     return (
         <ContactFormContainer>
             <Input
+                margin='5px auto'
                 type='text'
                 name='name' 
                 label='Name'
@@ -61,6 +62,7 @@ export const ContactForm : React.FC<IContactFormProps> = ({
                 disabled={isDisabled}
             />
             <Input
+                margin='5px auto'
                 type='tel'
                 name='phone_number' 
                 label='Phone Number'
@@ -71,7 +73,8 @@ export const ContactForm : React.FC<IContactFormProps> = ({
                 disabled={isDisabled}
             />
             <Input
-                type='text'
+                margin='5px auto'
+                type='textarea'
                 name='message'
                 label='Message'
                 placeholder='What can I help you with'
@@ -81,6 +84,7 @@ export const ContactForm : React.FC<IContactFormProps> = ({
                 disabled={isDisabled}
             />
             <Input
+                margin='5px auto'
                 type='email'
                 name='email_address'
                 label='Email'

@@ -10,6 +10,7 @@ interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement>  {
     description?: React.ReactNode;
     isError?: boolean | string;
     isSuccess?: boolean;
+    margin?: string;
 }
 
 export const Input : React.FC<IInputProps> = ({
@@ -17,9 +18,10 @@ export const Input : React.FC<IInputProps> = ({
     description,
     isError,
     isSuccess,
+    margin,
     ...props
 }): React.ReactElement => (
-    <InputContainer>
+    <InputContainer margin={margin}>
         {label && <BaseText
             size='h6'
             bold
@@ -38,9 +40,16 @@ export const Input : React.FC<IInputProps> = ({
     </InputContainer>
 );
 
-const InputContainer = styled.div`
+interface IInputContainerProps {
+    margin? : string
+}
+
+const InputContainer = styled.div<IInputContainerProps>`
     ${Mixins.transition(['opacity'])}
     ${Mixins.flex('column')}
+    ${({ theme, margin }) => `
+        margin: ${margin};
+    `}
     width: 100%;
 `;
 
@@ -50,7 +59,6 @@ interface IInputElementProps extends React.InputHTMLAttributes<HTMLInputElement>
 }
 
 const InputElement = styled.input<IInputElementProps>`
-    width: 100%;
     ${Mixins.transition(['background-color', 'opacity', 'box-shadow'])}
     font-size: 0.85rem;
     font-weight: bold;
@@ -93,7 +101,6 @@ const ErrorLabel = styled(BaseText)<IErrorLabel>`
     ${Mixins.transition(['max-height', 'opacity'])}
     overflow: hidden;
     max-height: 0;
-    width: 100%;
     opacity: 0;
     transition: all 250ms linear;
     text-align: center;

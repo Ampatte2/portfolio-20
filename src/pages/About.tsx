@@ -12,7 +12,7 @@ interface IAboutProps {
 const INITIAL_ANIMATION_DELAY = 1500;
 const ANIMATION_TIME          = '400ms';
 const FLIP_CARD_HEIGHT        = '100px';
-const FLIP_CARD_WIDTH         = '450px';
+const FLIP_CARD_WIDTH         = '200px';
 export const About : React.FC<IAboutProps> = ({
     
 }): React.ReactElement => {
@@ -28,33 +28,42 @@ export const About : React.FC<IAboutProps> = ({
             <BaseText
                 type='h1'
             >
-                About Me
+                A Bit About Me
             </BaseText>
-            <FlipCard
-                height={FLIP_CARD_HEIGHT}
-                width={FLIP_CARD_WIDTH}
-                margin='20px auto'
-                frontElement={
-                    <BaseText
-                        type='h3'
-                    >
-                        Hi, I'm Andrew Patterson
-                    </BaseText>
-                }
-                backElement={<BaseText
-                    size='h3'
+            <AboutMeContainer>
+                <BaseText
+                    type='h3'
                 >
-                    Front-End Developer
-                </BaseText>}
-                animationId='Developer'
-                animationTime={ANIMATION_TIME}
-                animationDelay={`${INITIAL_ANIMATION_DELAY}ms`}
-            />
+                    I am
+                </BaseText>
+                <FlipCard
+                    height={FLIP_CARD_HEIGHT}
+                    width={FLIP_CARD_WIDTH}
+                    
+                    frontElement={
+                        <BaseText
+                            type='h3'
+                        >
+                            Self Taught
+                        </BaseText>
+                    }
+                    backElement={<BaseText
+                        size='h3'
+                    >
+                        Industry Tested
+                    </BaseText>}
+                    animationId='Developer'
+                    animationTime={ANIMATION_TIME}
+                    animationDelay={`${INITIAL_ANIMATION_DELAY}ms`}
+                    rotationType='rotateX'
+                />
+            </AboutMeContainer>
+            
         </LandingDiv>
     );
 };
 
-const LandingDiv = styled.div`
+const LandingDiv       = styled.div`
     overflow-y: scroll;
     &::-webkit-scrollbar {
        width:0;
@@ -62,4 +71,9 @@ const LandingDiv = styled.div`
     ${Mixins.flex('column', 'flex-start', 'center')}
     width:100vw;
     height:100vh;
+`;
+const AboutMeContainer = styled.div`
+    ${Mixins.flex('row', 'space-between', 'center')}
+    width: 500px;
+
 `;

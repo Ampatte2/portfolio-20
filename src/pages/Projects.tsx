@@ -19,12 +19,6 @@ export const Projects = () => {
                 navigationLeftText='About'
                 navigationRightText='Contact'
             />
-            <BaseText
-                type='h1'
-                margin='10px'
-            >
-                Magic the Gathering Deck Builder
-            </BaseText>
             {isLoading && <BaseText
                 type='paragraph'
             >
@@ -50,8 +44,8 @@ interface IProjectIframeContainerProps {
 }
 
 const IframeContainer = styled.div`
-    width: 80%;
-    height: 80%;
+    width: calc(100vw - 80px);
+    height: 85vh;
     ${Mixins.media('tablet', ' overflow-x: hidden;')}
 `;
 
@@ -61,12 +55,10 @@ const LoadingBar = styled(ReactLoading)`
 `;
 
 const ProjectsDiv = styled.div`
-    width:calc(100vw - 40px);
+    width: 100vw;
     height:100vh;
-    ${Mixins.flex('column', 'flex-start', 'center')}
+    ${Mixins.flex('column', 'center')}
 `;
-
-
 
 const ProjectIframe = styled.iframe<IProjectIframeContainerProps>`
     ${({ isLoading }) => isLoading ? 'z-index: -1': 'z-index: 1'};

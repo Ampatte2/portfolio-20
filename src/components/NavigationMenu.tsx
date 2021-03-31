@@ -28,26 +28,28 @@ export const NavigationMenu : React.FC<INavigationMenuProps> = ({
     return (
         <NavigationMenuContainer
             isOpen={isOpen}>
-            <NavigationItem
-                size='h1'
-                onClick={() => navigatePath(Paths.Home)}>
-                Main Menu
-            </NavigationItem>
-            <NavigationItem
-                size='h1'
-                onClick={() => navigatePath(Paths.About)}>
-                About Me
-            </NavigationItem>
-            <NavigationItem
-                size='h1'
-                onClick={() => navigatePath(Paths.Projects)}>
-                Project Showcase
-            </NavigationItem>
-            <NavigationItem
-                size='h1'
-                onClick={() => navigatePath(Paths.Contact)}>
-                Contact Me
-            </NavigationItem>
+            <NavigationColumn>
+                <NavigationItem
+                    size='h1'
+                    onClick={() => navigatePath(Paths.Home)}>
+                    Main Menu
+                </NavigationItem>
+                <NavigationItem
+                    size='h1'
+                    onClick={() => navigatePath(Paths.Contact)}>
+                    Contact Me
+                </NavigationItem>
+                <NavigationItem
+                    size='h1'
+                    onClick={() => navigatePath(Paths.About)}>
+                    About Me
+                </NavigationItem>
+                <NavigationItem
+                    size='h1'
+                    onClick={() => navigatePath(Paths.Projects)}>
+                    Showcase
+                </NavigationItem>
+            </NavigationColumn>
         </NavigationMenuContainer>
     );
 };
@@ -57,7 +59,7 @@ const NavigationMenuContainer = styled.div<INavigationProps>`
     height: 100vh;
     width: 100vw;
     transition: all 0.3s linear;
-    ${Mixins.flex('column', 'center')}
+    ${Mixins.flex('center')}
     ${({ isOpen, theme }) => {
         const translation     = isOpen ? 'transform: translateY(0)': 'transform: translateY(-100vh)';
         const backgroundColor = theme.colors.secondary;
@@ -66,8 +68,12 @@ const NavigationMenuContainer = styled.div<INavigationProps>`
     z-index: 9;
 `;
 
-const NavigationItem = styled(BaseText)`
+const NavigationItem   = styled(BaseText)`
+    margin-bottom: 20px;
     ${({ theme }) => `&:hover {
         color: ${theme.colors.background};
     }`}
+`;
+const NavigationColumn = styled.div`
+    ${Mixins.flex('column', 'left')}
 `;

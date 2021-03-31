@@ -1,7 +1,7 @@
-import React, { useReducer } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useMounted, useSwipeNavigation } from '../utils';
-import { HeaderRow, Input, ParallaxStars, Navigation, ContactForm } from '../components';
+import { HeaderRow, BaseText, ParallaxStars, Navigation, ContactForm } from '../components';
 import { Paths } from '../transitions';
 import Mixins from '../mixins';
 import emailjs from 'emailjs-com';
@@ -15,13 +15,6 @@ export interface IEmail {
     phone_number: string;
 }
 
-const initialEmailForm: IEmail = {
-    name          : '',
-    message       : '',
-    email_address : '',
-    phone_number  : ''
-};
-
 interface IContactProps {
     
 }
@@ -29,9 +22,15 @@ interface IContactProps {
 export const Contact : React.FC<IContactProps> = ({
     
 }): React.ReactElement => {
-    const [left, right]           = useSwipeNavigation(Paths.Projects, Paths.Home);
-    const emailContactInformation = (emailFormValues: IEmail) => {
+    const [isLoading, setIsLoading] = useState(false);
+    const [left, right]             = useSwipeNavigation(Paths.Projects, Paths.Home);
+    const emailContactInformation   = (emailFormValues: IEmail) => {
         console.log(emailFormValues);
+        setIsLoading(true);
+        emailjs.send('service_iurhzo9', 'template_aaqv7vh', emailFormValues, 'user_hRWIdRTR3EOF4pKOTamw1').then(res => {
+            console.log(res);
+            setIsLoading(false);
+        });
     };
     
     return (
@@ -42,8 +41,17 @@ export const Contact : React.FC<IContactProps> = ({
                 navigationLeftText='Showcase'
                 navigationRightText='Home'
             />
+            <BaseText
+                size='h1'
+                bold>
+                Contact Me
+            </BaseText>
             <ParallaxStars/>
-            <ContactForm onSubmit={emailContactInformation}/>
+            <ContactForm
+                onSubmit={emailContactInformation}
+                isLoading={isLoading}
+                isDisabled={isLoading}
+            />
         </ContactDiv>
     );
 };
