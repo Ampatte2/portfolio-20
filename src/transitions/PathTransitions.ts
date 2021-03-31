@@ -20,7 +20,7 @@ export const PathTransitions = {
         timeout        : 800
     },
     [Paths.Init]: {
-        transformation : [{ transformation: 'translateX', value: '-100%' }],
+        transformation : [{ transformation: 'translateY', value: '-100%' }],
         timeout        : 800
     }
 };

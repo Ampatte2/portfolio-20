@@ -10,3 +10,4 @@ export * from './FlipCard';
 export * from './ParallaxStars';
 export * from './BurgerMenu';
 export * from './NavigationMenu';
+export * from './Input';
