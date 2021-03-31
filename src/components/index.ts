@@ -1,5 +1,4 @@
 export * from './BaseText';
-export * from './AnimatedBackground';
 export * from './Button';
 export * from './AnimatedIcon';
 export * from './AnimatedCircle';
@@ -8,3 +7,6 @@ export * from './OverlayImg';
 export * from './HeaderRow';
 export * from './Navigation';
 export * from './FlipCard';
+export * from './ParallaxStars';
+export * from './BurgerMenu';
+export * from './NavigationMenu';

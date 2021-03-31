@@ -1,5 +1,4 @@
 import { useRef, useState, useEffect } from 'react';
-import { AnimatedBackground, Button } from '../components';
 let showCursor = true;
 
 export const cursorFunction = (cursor: string) => {

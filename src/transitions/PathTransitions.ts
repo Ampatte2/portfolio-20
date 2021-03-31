@@ -2,7 +2,8 @@ export enum Paths {
     Projects = '/projects',
     About = '/about',
     Init = '/',
-    Home = '/home'
+    Home = '/home',
+    Contact = '/contact'
 }
 
 export const PathTransitions = {

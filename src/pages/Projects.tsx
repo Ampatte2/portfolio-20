@@ -8,7 +8,7 @@ import Mixins from '../mixins';
 import ReactLoading from 'react-loading';
 
 export const Projects = () => {
-    const [left, right]             = useSwipeNavigation(Paths.About, Paths.Home);
+    const [left, right]             = useSwipeNavigation(Paths.About, Paths.Contact);
     const [isLoading, setIsLoading] = useState(true);
     
     return (
@@ -17,7 +17,7 @@ export const Projects = () => {
                 navigationLeft={left}
                 navigationRight={right}
                 navigationLeftText='About'
-                navigationRightText='Home'
+                navigationRightText='Contact'
             />
             <BaseText
                 type='h1'
@@ -25,15 +25,10 @@ export const Projects = () => {
             >
                 Magic the Gathering Deck Builder
             </BaseText>
-            <BaseText
-                type='paragraph'
-            >
-                Hosted on Heroku
-            </BaseText>
             {isLoading && <BaseText
                 type='paragraph'
             >
-                Please allow dynos a second to spin up
+                Loading Please Wait
             </BaseText>}
             <IframeContainer>
                 <ProjectIframe
@@ -77,6 +72,7 @@ const ProjectIframe = styled.iframe<IProjectIframeContainerProps>`
     ${({ isLoading }) => isLoading ? 'z-index: -1': 'z-index: 1'};
     width: 100%;
     height: 100%;
+    scrollbar-face-color: red;
     background-color: white;
     margin: 0;
     padding: 0;

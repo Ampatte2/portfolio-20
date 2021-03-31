@@ -64,26 +64,28 @@ const NavigationArrowSegment   = styled.div`
     transition: transform 200ms ease-in;
     transform-origin: bottom left;
     transform: rotate(40deg);
+    border-radius: 99px;
     ${NavigationContainerLeft}:hover & {
         transform-origin: bottom left;
         ${Mixins.transform([{ transformation: 'rotate', value: '90deg' }, { transformation: 'translateX', value: '-30px' }])};
     };
-    ${Mixins.position('fixed', 0, 'calc(50vh - 40px)', 0, 0, '5px')}
+    ${Mixins.position('fixed', 0, 'calc(50vh - 30px)', 0, 0, '5px')}
     width: 4px;
-    height: 40px;
+    height: 30px;
 `;
 const NavigationArrowSegment2  = styled.div`
     ${({ theme }) => `background-color: ${theme.colors.primary};`}
     transition: transform 200ms ease-in;
     transform-origin: top left;
     transform: rotate(-40deg);
+    border-radius: 99px;
     ${NavigationContainerLeft}:hover & {
         transform-origin: top left;
         ${Mixins.transform([{ transformation: 'rotate', value: '-90deg' }, { transformation: 'translateX', value: '-30px' }])};
     };
     ${Mixins.position('fixed', 0, '50vh', 0, 0, '5px')}
     width: 4px;
-    height: 40px;
+    height: 30px;
 `;
 
 const NavigationArrowSegment3 = styled.div`
@@ -91,13 +93,14 @@ const NavigationArrowSegment3 = styled.div`
     transition: transform 200ms ease-in;
     transform-origin: bottom right;
     transform: rotate(-40deg);
+    border-radius: 99px;
     ${NavigationContainerRight}:hover & {
         transform-origin: bottom right;
         ${Mixins.transform([{ transformation: 'rotate', value: '-90deg' }, { transformation: 'translateX', value: '30px' }])};
     };
-    ${Mixins.position('fixed', 0, 'calc(50vh - 40px)', '5px', 0, 'auto')}
+    ${Mixins.position('fixed', 0, 'calc(50vh - 30px)', '5px', 0, 'auto')}
     width: 4px;
-    height: 40px;
+    height: 30px;
 `;
 
 const NavigationArrowSegment4 = styled.div`
@@ -105,13 +108,14 @@ const NavigationArrowSegment4 = styled.div`
     transition: transform 200ms ease-in;
     transform-origin: top right;
     transform: rotate(40deg);
+    border-radius: 99px;
     ${NavigationContainerRight}:hover & {
         transform-origin: top right;
         ${Mixins.transform([{ transformation: 'rotate', value: '90deg' }, { transformation: 'translateX', value: '30px' }])};
     };
     ${Mixins.position('fixed', 0, '50vh', '5px', 0, 'auto')}
     width: 4px;
-    height: 40px;
+    height: 30px;
 `;
 
 const HiddenTextLeft = styled(BaseText)`
@@ -121,7 +125,7 @@ const HiddenTextLeft = styled(BaseText)`
     width: fit-content;
     opacity: 0;
     ${Mixins.position('fixed', 0, 'calc(50vh - 0.5rem)', 0, 0, '5px')}
-    ${Mixins.transform([{ transformation: 'translateX', value: '-80px' }])};
+    ${Mixins.transform([{ transformation: 'translateX', value: '-100px' }])};
     ${NavigationContainerLeft}:hover & {
         ${Mixins.transform([{ transformation: 'translateX', value: '0px' }])};
         opacity: 1;
@@ -135,7 +139,7 @@ const HiddenTextRight = styled(BaseText)`
     height: 1rem;
     width: fit-content;
     ${Mixins.position('fixed', 0, 'calc(50vh - 0.5rem)', '5px', 0, 'auto')}
-    ${Mixins.transform([{ transformation: 'translateX', value: '80px' }])};
+    ${Mixins.transform([{ transformation: 'translateX', value: '100px' }])};
     ${NavigationContainerRight}:hover & {
         ${Mixins.transform([{ transformation: 'translateX', value: '0px' }])};
     };

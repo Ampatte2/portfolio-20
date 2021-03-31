@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link as L, useHistory } from 'react-router-dom';
-import { AnimatedBackground, BaseText, Button } from '../components';
+import { BaseText, Button } from '../components';
 import Mixins from '../mixins';
 import { useTypeWriter } from '../utils/useTypeWriter';
 

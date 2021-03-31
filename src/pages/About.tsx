@@ -23,7 +23,7 @@ export const About : React.FC<IAboutProps> = ({
                 navigationLeft={left}
                 navigationRight={right}
                 navigationLeftText='Home'
-                navigationRightText='Project'
+                navigationRightText='Showcase'
             />
             <BaseText
                 type='h1'

@@ -3,11 +3,12 @@ import Theme from './globals/Theme';
 import { Global } from './globals/Global';
 import { withTouch } from './globals/withTouch';
 import { Switch, Route, useLocation, Redirect } from 'react-router-dom';
-import { Landing, Projects, About, Init } from './pages';
+import { Landing, Projects, About, Init, Contact } from './pages';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { DefaultTheme } from 'styled-components';
 import { StyledTransition, selectForwardOrBackward, selectPathTransition, Paths } from './transitions';
 import Mixins from './mixins';
+import { BurgerMenu, NavigationMenu } from './components';
 
 const globalStyle = (theme: DefaultTheme) => `
   body {
@@ -28,14 +29,18 @@ interface ILocationState {
 }
 
 export default withTouch(() =>  {
-    const location = useLocation<ILocationState>();
+    const location            = useLocation<ILocationState>();
+    const [isOpen, setIsOpen] = useState(false);
 
     const childTransitionFactory = (child: React.ReactElement<any, string | React.JSXElementConstructor<any>>) => {
         let currentTransitions;
         if (location.state) {
             currentTransitions = selectForwardOrBackward(location.state.forward);
         } else {
-            currentTransitions = selectPathTransition(location.pathname);
+            currentTransitions = {
+                transformation : [{ transformation: 'translateY', value: '-100%' }],
+                timeout        : 800
+            };
         }
         return React.cloneElement(child, currentTransitions);
     };
@@ -52,6 +57,10 @@ export default withTouch(() =>  {
                 <StyledTransition
                     key={location.key}
                 >
+                    <BurgerMenu
+                        isOpen={isOpen}
+                        setIsOpen={setIsOpen}/>
+                    <NavigationMenu isOpen={isOpen}/>
                     <Switch location={location}>
                         <Route
                             path={Paths.Projects}
@@ -62,6 +71,9 @@ export default withTouch(() =>  {
                         <Route
                             path={Paths.Home}
                             component={Landing}/>
+                        <Route
+                            path={Paths.Contact}
+                            component={Contact}/>
                         <Route
                             path={Paths.Init}
                             component={Init}/>

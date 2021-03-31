@@ -1,7 +1,7 @@
 import React, { useState, useLayoutEffect, useRef, useEffect } from 'react';
 import { Link as L, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { HeaderRow, BaseText, FlipCard, Navigation } from '../components';
+import { ParallaxStars, BaseText, FlipCard, Navigation } from '../components';
 import { Paths } from '../transitions';
 import Mixins from '../mixins';
 import { useMounted, useSwipeNavigation } from '../utils';
@@ -19,33 +19,29 @@ const FLIP_CARD_HEIGHT        = '100px';
 const FLIP_CARD_WIDTH         = '450px';
 
 export const Landing = () => {
-    const [left, right] = useSwipeNavigation(Paths.Projects, Paths.About);
+    const [left, right] = useSwipeNavigation(Paths.Contact, Paths.About);
     
 
     return (
         <LandingDiv>
+            <ParallaxStars/>
             <Navigation
                 navigationLeft={left}
                 navigationRight={right}
-                navigationLeftText='Projects'
+                navigationLeftText='Contact'
                 navigationRightText='About'
             />
             <FlipCard
                 height={FLIP_CARD_HEIGHT}
                 width={FLIP_CARD_WIDTH}
                 margin='20px auto'
-                frontElement={
-                    <BaseText
-                        type='h3'
-                    >
-                        Hi, I'm Andrew Patterson
-                    </BaseText>
-                }
                 backElement={<BaseText
-                    size='h3'
+                    size='h1'
                 >
-                    Front-End Developer
+                    Andrew Michael Patterson
                 </BaseText>}
+                frontCardColor='transparent'
+                backCardColor='transparent'
                 animationId='Developer'
                 animationTime={ANIMATION_TIME}
                 animationDelay={`${INITIAL_ANIMATION_DELAY}ms`}
@@ -56,16 +52,40 @@ export const Landing = () => {
                 margin='20px auto'
                 frontElement={
                     <BaseText
-                        type='h3'
+                        type='h2'
+                    >
+                        Hi, I'm Andrew Patterson
+                    </BaseText>
+                }
+                backElement={<BaseText
+                    size='h2'
+                >
+                    Front-End Developer
+                </BaseText>}
+                frontCardColor='secondary'
+                backCardColor='transparent'
+                animationId='Developer'
+                animationTime={ANIMATION_TIME}
+                animationDelay={`${INITIAL_ANIMATION_DELAY + 200}ms`}
+            />
+            <FlipCard
+                height={FLIP_CARD_HEIGHT}
+                width={FLIP_CARD_WIDTH}
+                margin='20px auto'
+                frontElement={
+                    <BaseText
+                        type='h2'
                     >
                         Card Game Enthusiast
                     </BaseText>
                 }
                 backElement={<BaseText
-                    size='h3'
+                    size='h2'
                 >
                     React Typescript/Javascript
                 </BaseText>}
+                frontCardColor='secondary'
+                backCardColor='transparent'
                 animationId='Language'
                 animationTime={ANIMATION_TIME}
                 animationDelay={`${INITIAL_ANIMATION_DELAY + 1000}ms`}
@@ -77,16 +97,18 @@ export const Landing = () => {
                 margin='20px auto'
                 frontElement={
                     <BaseText
-                        type='h3'
+                        type='h2'
                     >
                         Arduino Technician
                     </BaseText>
                 }
                 backElement={<BaseText
-                    size='h3'
+                    size='h2'
                 >
                     UI/UX Designer
                 </BaseText>}
+                frontCardColor='secondary'
+                backCardColor='transparent'
                 animationId='Research'
                 animationTime={ANIMATION_TIME}
                 animationDelay={`${INITIAL_ANIMATION_DELAY + 2000}ms`}
