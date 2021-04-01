@@ -12,3 +12,4 @@ export * from './BurgerMenu';
 export * from './NavigationMenu';
 export * from './Input';
 export * from './ContactForm';
+export * from './ScrollAnimation';

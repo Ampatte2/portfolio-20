@@ -37,8 +37,6 @@ export const Projects = () => {
     );
 };
 
-//<ProjectIframe src='https://mtg-builder-application.herokuapp.com/'/>
-
 interface IProjectIframeContainerProps {
    isLoading : boolean;
 }

@@ -136,6 +136,7 @@ const FlipCardFrontContainer = styled.div<ICardContainer>`
         background-color: ${theme.colors[backgroundColor] || backgroundColor};
     `}
     backface-visibility: hidden;
+    border-radius: 10px;
 `;
 const FlipCardBackContainer  = styled.div<ICardContainer>`
     position: absolute;
@@ -147,5 +148,5 @@ const FlipCardBackContainer  = styled.div<ICardContainer>`
         backface-visibility: hidden;
         transform: ${rotationType}(180deg);
     `}
-    
+    border-radius: 10px;
 `;

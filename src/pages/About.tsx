@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Mixins from '../mixins';
 import { Link as L, useHistory } from 'react-router-dom';
 import { Paths } from '../transitions';
-import { FlipCard, Navigation, BaseText } from '../components';
-import { useSwipeNavigation } from '../utils';
+import { FlipCard, Navigation, BaseText, ScrollAnimation } from '../components';
+import { useScroll, useSwipeNavigation } from '../utils';
 
 interface IAboutProps {
 }
@@ -17,8 +17,9 @@ export const About : React.FC<IAboutProps> = ({
     
 }): React.ReactElement => {
     const [left, right] = useSwipeNavigation(Paths.Home, Paths.Projects);
+    const ref           = useScroll();
     return (
-        <LandingDiv>
+        <LandingDiv ref={ref}>
             <Navigation
                 navigationLeft={left}
                 navigationRight={right}
@@ -30,7 +31,9 @@ export const About : React.FC<IAboutProps> = ({
             >
                 A Bit About Me
             </BaseText>
-            <AboutMeContainer>
+            <ScrollAnimation
+                initialAnimation={Mixins.transform([{ transformation: 'translateY', value: '200px' }])}
+                finalAnimation={Mixins.transform([{ transformation: 'translateY', value: '0px' }])}>
                 <BaseText
                     type='h3'
                 >
@@ -52,12 +55,342 @@ export const About : React.FC<IAboutProps> = ({
                     >
                         Industry Tested
                     </BaseText>}
-                    animationId='Developer'
+                    animationId='SelfTaught'
                     animationTime={ANIMATION_TIME}
                     animationDelay={`${INITIAL_ANIMATION_DELAY}ms`}
                     rotationType='rotateX'
                 />
-            </AboutMeContainer>
+            </ScrollAnimation>
+            <ScrollAnimation
+                initialAnimation={Mixins.transform([{ transformation: 'translateY', value: '200px' }])}
+                finalAnimation={Mixins.transform([{ transformation: 'translateY', value: '0px' }])}>
+                <BaseText
+                    type='h3'
+                >
+                    I am
+                </BaseText>
+                <FlipCard
+                    height={FLIP_CARD_HEIGHT}
+                    width={FLIP_CARD_WIDTH}
+                    
+                    frontElement={
+                        <BaseText
+                            type='h3'
+                        >
+                            Self Taught
+                        </BaseText>
+                    }
+                    backElement={<BaseText
+                        size='h3'
+                    >
+                        Industry Tested
+                    </BaseText>}
+                    animationId='SelfTaught'
+                    animationTime={ANIMATION_TIME}
+                    animationDelay={`${INITIAL_ANIMATION_DELAY}ms`}
+                    rotationType='rotateX'
+                />
+            </ScrollAnimation>
+            <ScrollAnimation
+                initialAnimation={Mixins.transform([{ transformation: 'translateY', value: '200px' }])}
+                finalAnimation={Mixins.transform([{ transformation: 'translateY', value: '0px' }])}>
+                <BaseText
+                    type='h3'
+                >
+                    I am
+                </BaseText>
+                <FlipCard
+                    height={FLIP_CARD_HEIGHT}
+                    width={FLIP_CARD_WIDTH}
+                    
+                    frontElement={
+                        <BaseText
+                            type='h3'
+                        >
+                            Self Taught
+                        </BaseText>
+                    }
+                    backElement={<BaseText
+                        size='h3'
+                    >
+                        Industry Tested
+                    </BaseText>}
+                    animationId='SelfTaught'
+                    animationTime={ANIMATION_TIME}
+                    animationDelay={`${INITIAL_ANIMATION_DELAY}ms`}
+                    rotationType='rotateX'
+                />
+            </ScrollAnimation>
+            <ScrollAnimation
+                initialAnimation={Mixins.transform([{ transformation: 'translateY', value: '200px' }])}
+                finalAnimation={Mixins.transform([{ transformation: 'translateY', value: '0px' }])}>
+                <BaseText
+                    type='h3'
+                >
+                    I am
+                </BaseText>
+                <FlipCard
+                    height={FLIP_CARD_HEIGHT}
+                    width={FLIP_CARD_WIDTH}
+                    
+                    frontElement={
+                        <BaseText
+                            type='h3'
+                        >
+                            Self Taught
+                        </BaseText>
+                    }
+                    backElement={<BaseText
+                        size='h3'
+                    >
+                        Industry Tested
+                    </BaseText>}
+                    animationId='SelfTaught'
+                    animationTime={ANIMATION_TIME}
+                    animationDelay={`${INITIAL_ANIMATION_DELAY}ms`}
+                    rotationType='rotateX'
+                />
+            </ScrollAnimation>
+            <ScrollAnimation
+                initialAnimation={Mixins.transform([{ transformation: 'translateY', value: '200px' }])}
+                finalAnimation={Mixins.transform([{ transformation: 'translateY', value: '0px' }])}>
+                <BaseText
+                    type='h3'
+                >
+                    I am
+                </BaseText>
+                <FlipCard
+                    height={FLIP_CARD_HEIGHT}
+                    width={FLIP_CARD_WIDTH}
+                    
+                    frontElement={
+                        <BaseText
+                            type='h3'
+                        >
+                            Self Taught
+                        </BaseText>
+                    }
+                    backElement={<BaseText
+                        size='h3'
+                    >
+                        Industry Tested
+                    </BaseText>}
+                    animationId='SelfTaught'
+                    animationTime={ANIMATION_TIME}
+                    animationDelay={`${INITIAL_ANIMATION_DELAY}ms`}
+                    rotationType='rotateX'
+                />
+            </ScrollAnimation>
+            <ScrollAnimation
+                initialAnimation={Mixins.transform([{ transformation: 'translateY', value: '200px' }])}
+                finalAnimation={Mixins.transform([{ transformation: 'translateY', value: '0px' }])}>
+                <BaseText
+                    type='h3'
+                >
+                    I am
+                </BaseText>
+                <FlipCard
+                    height={FLIP_CARD_HEIGHT}
+                    width={FLIP_CARD_WIDTH}
+                    
+                    frontElement={
+                        <BaseText
+                            type='h3'
+                        >
+                            Self Taught
+                        </BaseText>
+                    }
+                    backElement={<BaseText
+                        size='h3'
+                    >
+                        Industry Tested
+                    </BaseText>}
+                    animationId='SelfTaught'
+                    animationTime={ANIMATION_TIME}
+                    animationDelay={`${INITIAL_ANIMATION_DELAY}ms`}
+                    rotationType='rotateX'
+                />
+            </ScrollAnimation>
+            <ScrollAnimation
+                initialAnimation={Mixins.transform([{ transformation: 'translateY', value: '200px' }])}
+                finalAnimation={Mixins.transform([{ transformation: 'translateY', value: '0px' }])}>
+                <BaseText
+                    type='h3'
+                >
+                    I am
+                </BaseText>
+                <FlipCard
+                    height={FLIP_CARD_HEIGHT}
+                    width={FLIP_CARD_WIDTH}
+                    
+                    frontElement={
+                        <BaseText
+                            type='h3'
+                        >
+                            Self Taught
+                        </BaseText>
+                    }
+                    backElement={<BaseText
+                        size='h3'
+                    >
+                        Industry Tested
+                    </BaseText>}
+                    animationId='SelfTaught'
+                    animationTime={ANIMATION_TIME}
+                    animationDelay={`${INITIAL_ANIMATION_DELAY}ms`}
+                    rotationType='rotateX'
+                />
+            </ScrollAnimation>
+            <ScrollAnimation
+                initialAnimation={Mixins.transform([{ transformation: 'translateY', value: '200px' }])}
+                finalAnimation={Mixins.transform([{ transformation: 'translateY', value: '0px' }])}>
+                <BaseText
+                    type='h3'
+                >
+                    I am
+                </BaseText>
+                <FlipCard
+                    height={FLIP_CARD_HEIGHT}
+                    width={FLIP_CARD_WIDTH}
+                    
+                    frontElement={
+                        <BaseText
+                            type='h3'
+                        >
+                            Self Taught
+                        </BaseText>
+                    }
+                    backElement={<BaseText
+                        size='h3'
+                    >
+                        Industry Tested
+                    </BaseText>}
+                    animationId='SelfTaught'
+                    animationTime={ANIMATION_TIME}
+                    animationDelay={`${INITIAL_ANIMATION_DELAY}ms`}
+                    rotationType='rotateX'
+                />
+            </ScrollAnimation>
+            <ScrollAnimation
+                initialAnimation={Mixins.transform([{ transformation: 'translateY', value: '200px' }])}
+                finalAnimation={Mixins.transform([{ transformation: 'translateY', value: '0px' }])}>
+                <BaseText
+                    type='h3'
+                >
+                    I am
+                </BaseText>
+                <FlipCard
+                    height={FLIP_CARD_HEIGHT}
+                    width={FLIP_CARD_WIDTH}
+                    
+                    frontElement={
+                        <BaseText
+                            type='h3'
+                        >
+                            Self Taught
+                        </BaseText>
+                    }
+                    backElement={<BaseText
+                        size='h3'
+                    >
+                        Industry Tested
+                    </BaseText>}
+                    animationId='SelfTaught'
+                    animationTime={ANIMATION_TIME}
+                    animationDelay={`${INITIAL_ANIMATION_DELAY}ms`}
+                    rotationType='rotateX'
+                />
+            </ScrollAnimation>
+            <ScrollAnimation
+                initialAnimation={Mixins.transform([{ transformation: 'translateY', value: '200px' }])}
+                finalAnimation={Mixins.transform([{ transformation: 'translateY', value: '0px' }])}>
+                <BaseText
+                    type='h3'
+                >
+                    I am
+                </BaseText>
+                <FlipCard
+                    height={FLIP_CARD_HEIGHT}
+                    width={FLIP_CARD_WIDTH}
+                    
+                    frontElement={
+                        <BaseText
+                            type='h3'
+                        >
+                            Self Taught
+                        </BaseText>
+                    }
+                    backElement={<BaseText
+                        size='h3'
+                    >
+                        Industry Tested
+                    </BaseText>}
+                    animationId='SelfTaught'
+                    animationTime={ANIMATION_TIME}
+                    animationDelay={`${INITIAL_ANIMATION_DELAY}ms`}
+                    rotationType='rotateX'
+                />
+            </ScrollAnimation>
+            <ScrollAnimation
+                initialAnimation={Mixins.transform([{ transformation: 'translateY', value: '200px' }])}
+                finalAnimation={Mixins.transform([{ transformation: 'translateY', value: '0px' }])}>
+                <BaseText
+                    type='h3'
+                >
+                    I am
+                </BaseText>
+                <FlipCard
+                    height={FLIP_CARD_HEIGHT}
+                    width={FLIP_CARD_WIDTH}
+                    
+                    frontElement={
+                        <BaseText
+                            type='h3'
+                        >
+                            Self Taught
+                        </BaseText>
+                    }
+                    backElement={<BaseText
+                        size='h3'
+                    >
+                        Industry Tested
+                    </BaseText>}
+                    animationId='SelfTaught'
+                    animationTime={ANIMATION_TIME}
+                    animationDelay={`${INITIAL_ANIMATION_DELAY}ms`}
+                    rotationType='rotateX'
+                />
+            </ScrollAnimation>
+            <ScrollAnimation
+                initialAnimation={Mixins.transform([{ transformation: 'translateY', value: '200px' }])}
+                finalAnimation={Mixins.transform([{ transformation: 'translateY', value: '0px' }])}>
+                <BaseText
+                    type='h3'
+                >
+                    I am
+                </BaseText>
+                <FlipCard
+                    height={FLIP_CARD_HEIGHT}
+                    width={FLIP_CARD_WIDTH}
+                    
+                    frontElement={
+                        <BaseText
+                            type='h3'
+                        >
+                            Self Taught
+                        </BaseText>
+                    }
+                    backElement={<BaseText
+                        size='h3'
+                    >
+                        Industry Tested
+                    </BaseText>}
+                    animationId='SelfTaught'
+                    animationTime={ANIMATION_TIME}
+                    animationDelay={`${INITIAL_ANIMATION_DELAY}ms`}
+                    rotationType='rotateX'
+                />
+            </ScrollAnimation>
             
         </LandingDiv>
     );
