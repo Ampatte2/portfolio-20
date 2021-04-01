@@ -16,17 +16,13 @@ export const ScrollAnimation : React.FC<IScrollAnimationProps> = ({
     const scrollContainerRef            = useRef(null);
 
     const onScroll = () => {
-        console.log('scroll');
         if (scrollContainerRef.current) {
             //@ts-ignore
             const topPosition    = scrollContainerRef.current.getBoundingClientRect().top;
             const scrollPosition = window.scrollY + window.innerHeight;
-            
             if (topPosition < scrollPosition) {
                 setIsAnimating(true);
-            } else {
-                setIsAnimating(false);
-            }
+            } 
         }
         
     };
@@ -54,6 +50,6 @@ interface IAnimatibleContainerProps extends IScrollAnimationProps {
 
 const AnimatibleContainer = styled.div<IAnimatibleContainerProps>`
     transition: all 1s;
-    background-color: red;
+    margin-top: 20px;
     ${({ isAnimating, initialAnimation, finalAnimation }) => isAnimating ? finalAnimation : initialAnimation}
 `;

@@ -37,6 +37,7 @@ export const Landing = () => {
                 margin='20px auto'
                 backElement={<BaseText
                     size='h1'
+                    shadow={1}
                 >
                     Andrew Michael Patterson
                 </BaseText>}
@@ -45,6 +46,7 @@ export const Landing = () => {
                 animationId='Developer'
                 animationTime={ANIMATION_TIME}
                 animationDelay={`${INITIAL_ANIMATION_DELAY}ms`}
+                rotationType='rotateX'
             />
             <FlipCard
                 height={FLIP_CARD_HEIGHT}
@@ -52,13 +54,14 @@ export const Landing = () => {
                 margin='20px auto'
                 frontElement={
                     <BaseText
-                        type='h2'
+                        size='h2'
                     >
                         Hi, I'm Andrew Patterson
                     </BaseText>
                 }
                 backElement={<BaseText
                     size='h2'
+                    shadow={1}
                 >
                     Front-End Developer
                 </BaseText>}
@@ -67,6 +70,7 @@ export const Landing = () => {
                 animationId='Developer'
                 animationTime={ANIMATION_TIME}
                 animationDelay={`${INITIAL_ANIMATION_DELAY + 200}ms`}
+                rotationType='rotateX'
             />
             <FlipCard
                 height={FLIP_CARD_HEIGHT}
@@ -74,13 +78,14 @@ export const Landing = () => {
                 margin='20px auto'
                 frontElement={
                     <BaseText
-                        type='h2'
+                        size='h2'
                     >
                         Card Game Enthusiast
                     </BaseText>
                 }
                 backElement={<BaseText
                     size='h2'
+                    shadow={1}
                 >
                     React Typescript/Javascript
                 </BaseText>}
@@ -97,13 +102,14 @@ export const Landing = () => {
                 margin='20px auto'
                 frontElement={
                     <BaseText
-                        type='h2'
+                        size='h2'
                     >
                         Arduino Technician
                     </BaseText>
                 }
                 backElement={<BaseText
                     size='h2'
+                    shadow={1}
                 >
                     UI/UX Designer
                 </BaseText>}
@@ -112,6 +118,7 @@ export const Landing = () => {
                 animationId='Research'
                 animationTime={ANIMATION_TIME}
                 animationDelay={`${INITIAL_ANIMATION_DELAY + 2000}ms`}
+                rotationType='rotateX'
             />
         </LandingDiv>
     );

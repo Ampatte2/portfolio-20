@@ -1,116 +1,53 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
-import { BaseText as B } from '../components';
+import { BaseText } from '../components';
 import { icons } from '../assets/icons';
 import Mixins from '../mixins';
 
-interface SkillsDisplayProps {
-    animationDelay?: number;
-}
+const FIRST_SKILLS_ARRAY  = ['React', 'React-Native', 'Svelte', 'Styled-Components', 'Redux'];
+const SECOND_SKILLS_ARRAY = ['GraphQL', 'PostGresSQL', 'MySQL', 'MySQL', 'MongoDB', 'Mongoose'];
+const THIRD_SKILLS_ARRAY  = ['Node.js', 'Python', 'Docker', 'Github', 'Confluence', 'Jira'];
 
-export const SkillsDisplay: React.FC<SkillsDisplayProps> = ({
+export const Skills: React.FC = ({
     ...props
 }): React.ReactElement => {
-    return <SkillsDiv {...props}>
-        <Column>
-            <StyledIcon as={icons.DesignServices}/>
-            <BaseText
-                size="2.5vmin"
-                shadow={2}
-                color="white"
+    const renderSkillText = useCallback((skills: string[]) => {
+        const skillsArrayText = skills.map((skill) => {
+            return <BaseText
+                size='2.5vmin'
+                margin='10px 0'
+                shadow={1}
             >
-                React
-            </BaseText>
-            <BaseText
-                size="2.5vmin"
-                shadow={2}
-                color="white"
-            >
-                Angular
-            </BaseText>
-            <BaseText
-                size="2.5vmin"
-                shadow={2}
-                color="white"
-            >
-                Svelte
-            </BaseText>
-            <BaseText
-                size="2.5vmin"
-                shadow={2}
-                color="white"
-            >
-                Vue
-            </BaseText>
-        </Column>
-        <Column>
+                {skill}
+            </BaseText>;
+        });
+        return skillsArrayText;
+    }, []);
+    return <SkillsDivContainer {...props}>
+        <SectionRow>
+            <StyledIcon as={icons.Web}/>
+            <TextColumn>
+                {renderSkillText(FIRST_SKILLS_ARRAY)}
+            </TextColumn>
+        </SectionRow>
+        <SectionRow>
             <StyledIcon as={icons.Database}/>
-            <BaseText
-                size="2.5vmin"
-                shadow={2}
-                color="white"
-            >
-                Mongoose
-            </BaseText>
-            <BaseText
-                size="2.5vmin"
-                shadow={2}
-                color="white"
-            >
-                MongoDB
-            </BaseText>
-            <BaseText
-                size="2.5vmin"
-                shadow={2}
-                color="white"
-            >
-                MySQL
-            </BaseText>
-            <BaseText
-                size="2.5vmin"
-                shadow={2}
-                color="white"
-            >
-                PostGresSQL
-            </BaseText>
-        </Column>
-        <Column>
+            <TextColumn>
+                {renderSkillText(SECOND_SKILLS_ARRAY)}
+            </TextColumn>
+        </SectionRow>
+        <SectionRow>
             <StyledIcon as={icons.Server}/>
-            <BaseText
-                size="2.5vmin"
-                shadow={2}
-                color="white"
-            >
-                Node.js
-            </BaseText>
-            <BaseText
-                size="2.5vmin"
-                shadow={2}
-                color="white"
-            >
-                GraphQL
-            </BaseText>
-            <BaseText
-                size="2.5vmin"
-                shadow={2}
-                color="white"
-            >
-                Node.js
-            </BaseText>
-            <BaseText
-                size="2.5vmin"
-                shadow={2}
-                color="white"
-            >
-                Docker
-            </BaseText>
-        </Column>
-    </SkillsDiv>;
+            <TextColumn>
+                {renderSkillText(THIRD_SKILLS_ARRAY)}
+            </TextColumn>
+        </SectionRow>
+    </SkillsDivContainer>;
 };
 
 const StyledIcon = styled.svg`
-    width: 7vmin;
-    margin:0 0 20px 0;
+    width: 50px;
+    margin: auto;
     ${({
         theme,
     }): string => `
@@ -118,40 +55,23 @@ const StyledIcon = styled.svg`
     `}
 `;
 
-const Column    = styled.div`
-${Mixins.flex('center')}
-    flex-direction:column;
-    
+const SectionRow = styled.div`
+    display: grid;
+    align-items: center;
+    margin: 10px 0;
+    grid-template-columns: 1fr 3fr;
 `;
-const BaseText  = styled(B)`
-    margin-top:10px;
-`;
-const SkillsDiv = styled.div<SkillsDisplayProps>`
-    position: absolute;
+const TextColumn = styled.div`
     display:grid;
+    grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
-    left:50%;
-    top:50%;
-    transform: translate(-50%, -40%);
+    grid-column-gap: 10px;
+`;
+
+const SkillsDivContainer = styled.div`
+    display:grid;
+    grid-template-rows: 1fr 1fr 1fr;
     width:60vw;
-    height:30vh;
-    ${({
-        animationDelay,
-    }): string => `
-        clip-path: ellipse(0%);
-        animation: projectsAnimation 4s ease-out forwards;
-        animation-delay: ${animationDelay}s;
-        opacity:0;
-        @keyframes projectsAnimation {
-                    0% {
-                        clip-path: ellipse(100% 0% at 50% 50%);
-                    }
-                    100%{
-                        opacity:1;
-                        clip-path: ellipse(100% 100% at 50% 50%);
-                    }
-                } `
-};
     ${Mixins.media(
         'tablet',
         `
