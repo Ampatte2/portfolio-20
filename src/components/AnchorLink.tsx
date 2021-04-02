@@ -35,4 +35,7 @@ const Anchor = styled.a<AnchorLinkProps>`
     cursor: pointer;
     ${Mixins.flex('center')}
     margin: ${props => props.margin};
+    &:visited {
+        color: transparent;
+    }
 `;

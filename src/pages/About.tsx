@@ -41,6 +41,19 @@ export const About : React.FC<IAboutProps> = ({
             <ScrollAnimation
                 initialAnimation={Mixins.transform([{ transformation: 'translateY', value: '200px' }])}
                 finalAnimation={Mixins.transform([{ transformation: 'translateY', value: '0px' }])}>
+                <AboutMeContainer>
+                    <BaseText
+                        type='h1'
+                        bold
+                    >
+                        Accomplishments
+                    </BaseText>
+                    <Interests/>
+                </AboutMeContainer>
+            </ScrollAnimation>
+            <ScrollAnimation
+                initialAnimation={Mixins.transform([{ transformation: 'translateY', value: '200px' }])}
+                finalAnimation={Mixins.transform([{ transformation: 'translateY', value: '0px' }])}>
                 <SkillsContainer>
                     <BaseText
                         type='h1'
@@ -61,21 +74,13 @@ export const About : React.FC<IAboutProps> = ({
                     >
                         Links
                     </BaseText>
-                    <SocialLinks/>
+                    <SocialLinks hoverColor='secondary'/>
                 </SkillsContainer>
             </ScrollAnimation>
             <ScrollAnimation
                 initialAnimation={Mixins.transform([{ transformation: 'translateY', value: '200px' }])}
                 finalAnimation={Mixins.transform([{ transformation: 'translateY', value: '0px' }])}>
-                <SkillsContainer>
-                    <BaseText
-                        type='h1'
-                        bold
-                    >
-                        Interests
-                    </BaseText>
-                    <Interests/>
-                </SkillsContainer>
+                <PaddingDiv />
             </ScrollAnimation>
         </LandingDiv>
     );
@@ -95,8 +100,8 @@ const PaddingDiv       = styled.div`
     height: 100px;
 `;
 const AboutMeContainer = styled.div`
-    ${Mixins.flex('row',  'center')}
-    width: 60vw;
+    ${Mixins.flex('column', 'center')}
+    ${({ theme }) => `background-color: ${theme.colors.background};`}
 `;
 const SkillsContainer  = styled.div`
     ${Mixins.flex('column', 'center')}

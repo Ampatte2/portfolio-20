@@ -4,7 +4,7 @@ import styled, { keyframes } from 'styled-components';
 //https://codepen.io/flexdinesh/pen/GxNazP
 
 interface IParallaxStarsProps {
-     
+     backgroundColor?: string;
 }
 
 const getRandomInteger = () => {
@@ -14,7 +14,7 @@ const getRandomInteger = () => {
 
 const getRandomColor = () => {
     const randomNumber = getRandomInteger();
-    let randomColor    = 'black';
+    let randomColor    = '#663399';
     switch (randomNumber) {
     case 1:
         randomColor = '#22277A';

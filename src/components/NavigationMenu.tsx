@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Mixins from '../mixins';
 import { BaseText } from './BaseText';
 import { Button } from './Button';
-import { AnchorLink } from './AnchorLink';
+import { SocialLinks } from '../sections/SocialLinks';
 import { Paths } from '../transitions';
 
 interface INavigationProps {
@@ -49,6 +49,7 @@ export const NavigationMenu : React.FC<INavigationMenuProps> = ({
                     onClick={() => navigatePath(Paths.Projects)}>
                     Showcase
                 </NavigationItem>
+                <SocialLinks/>
             </NavigationColumn>
         </NavigationMenuContainer>
     );
@@ -75,5 +76,5 @@ const NavigationItem   = styled(BaseText)`
     }`}
 `;
 const NavigationColumn = styled.div`
-    ${Mixins.flex('column', 'left')}
+    ${Mixins.flex('column', 'center')}
 `;

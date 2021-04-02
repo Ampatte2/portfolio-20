@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import { AnchorLink } from '../components';
 import { icons } from '../assets/icons';
@@ -7,31 +7,29 @@ import Mixins from '../mixins';
 const GITHUB_LINK    = 'https://github.com/Ampatte2';
 const LINKED_IN_LINK = 'https://www.linkedin.com/in/andrewmpatterson/';
 const RESUME_LINK    = '/Resume.pdf';
+const MAPPED_LINKS   = [{ link: GITHUB_LINK, icon: icons.Github }, { link: LINKED_IN_LINK, icon: icons.LinkedIn }, { link: RESUME_LINK, icon: icons.Document }];
 
 interface ISocialLinksProps {
+    hoverColor?: string
 }
 
 export const SocialLinks : React.FC<ISocialLinksProps> = ({
-    
+    hoverColor = 'background'
 }): React.ReactElement => {
-    
+    const renderLinks = useCallback(() => {
+        const links = MAPPED_LINKS.map(({ link, icon }) => <AnchorLink
+            href={link}
+            target='_blank'
+        > 
+            <SocialIcon
+                as={icon}
+                hoverColor={hoverColor}/>
+        </AnchorLink>);
+        return links;
+    }, []);
     return (
         <IconContainer>
-            <AnchorLink
-                href={GITHUB_LINK}
-                target='_blank'> 
-                <SocialIcon as={icons.Github}/>
-            </AnchorLink>
-            <AnchorLink
-                href={LINKED_IN_LINK}
-                target='_blank'> 
-                <SocialIcon as={icons.LinkedIn}/>
-            </AnchorLink>
-            <AnchorLink
-                href={RESUME_LINK}
-                target='_blank'> 
-                <SocialIcon as={icons.Document}/>
-            </AnchorLink>
+            {renderLinks()}
         </IconContainer>
     );
 };
@@ -41,9 +39,16 @@ const IconContainer = styled.div`
     width: 200px;
 `;
 
-const SocialIcon = styled.svg`
+interface ISocialIconProps {
+    hoverColor : string
+}
+
+const SocialIcon = styled.svg<ISocialIconProps>`
     width: 40px;
-    ${({ theme }) => `
-        color: ${theme.colors.primary}
+    ${({ theme, hoverColor }) => `
+        color: ${theme.colors.primary};
+        &:hover {
+            color: ${theme.colors[hoverColor] || hoverColor}
+        };
     `}
 `;

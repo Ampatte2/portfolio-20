@@ -4,87 +4,125 @@ import { BaseText } from '../components';
 import { icons } from '../assets/icons';
 import Mixins from '../mixins';
 
-const HIKING_LINES     = ['I am in love with exploration', 'I have hiked the tallest mountains in Phoenix', 'Hiked the tallest mountain in Arizona'];
-const CARD_GAMES_LINES = ['A long time hobby of mine is competing in card games', 'My personal favorite game to play is Magic the Gathering', 'I love the social aspect'];
-const ARDUINO_LINES    = ['The combination of physical creation with coding', 'This harkens back to why I fell in love with development', 'The only limit to what I can create is my knowledge'];
-
 export const Interests: React.FC = ({
     ...props
-}): React.ReactElement => {
-    const renderLines = useCallback((lines: string[]) => {
-        const skillsArrayText = lines.map((line) => {
-            return <BaseText
-                size='2.5vmin'
-                margin='10px 0'
-                shadow={1}
-            >
-                {line}
-            </BaseText>;
-        });
-        return skillsArrayText;
-    }, []);
-    return <SkillsDivContainer {...props}>
+}): React.ReactElement => (
+    <SkillsDivContainer {...props}>
         <SectionRow>
             <BaseText
                 size='h1'
                 shadow={1}
             >
-                Hiking
+                Group Ordering
             </BaseText>
             <TextColumn>
-                {renderLines(HIKING_LINES)}
+                <BaseText
+                    size='h4'
+                    margin='15px 0'
+                    shadow={1}
+                >
+                    User feature to be able to order as a group
+                </BaseText>
+                <DescriptionListItem>Developed in React Native</DescriptionListItem>
+                <DescriptionListItem>Worked with backend engineers to create a solution using existing infrastructure</DescriptionListItem>
+                <DescriptionListItem>Real time updates for group members</DescriptionListItem>
             </TextColumn>
         </SectionRow>
         <SectionRow>
-            <BaseText
-                size='h1'
-                shadow={1}
-            >
-                Card Games
-            </BaseText>
             <TextColumn>
-                {renderLines(CARD_GAMES_LINES)}
+                <BaseText
+                    size='h1'
+                    shadow={1}
+                >
+                    Kitchen Management Mode
+                </BaseText>
+            </TextColumn>
+            <TextColumn>
+                <BaseText
+                    size='h4'
+                    margin='15px 0'
+                    shadow={1}
+                >
+                    Vendor feature to effortlessly view and process orders
+                </BaseText>
+                <DescriptionListItem>Developed in React</DescriptionListItem>
+                <DescriptionListItem>Worked with backend engineers to create a solution using existing infrastructure</DescriptionListItem>
+                <DescriptionListItem>Real time updates for group members</DescriptionListItem>
             </TextColumn>
         </SectionRow>
         <SectionRow>
-            <BaseText
-                size='h1'
-                shadow={1}
-            >
-                Arduino
-            </BaseText>
             <TextColumn>
-                {renderLines(ARDUINO_LINES)}
+                <BaseText
+                    size='h1'
+                    shadow={1}
+                >
+                    Distributed Systems Debugging
+                </BaseText>
+            </TextColumn>
+            <TextColumn>
+                <BaseText
+                    size='h4'
+                    margin='15px 0'
+                    shadow={1}
+                >
+                    Debugged Auth Service for mobile application
+                </BaseText>
+                <DescriptionListItem>Node.js server MongoDB database GraphQL service layer</DescriptionListItem>
+                <DescriptionListItem>Setup OAuth, Database, and Verification Service locally</DescriptionListItem>
+                <DescriptionListItem>Used Postman to make requests</DescriptionListItem>
             </TextColumn>
         </SectionRow>
-    </SkillsDivContainer>;
-};
+        <SectionRow>
+            <TextColumn>
+                <BaseText
+                    size='h1'
+                    shadow={1}
+                >
+                    Typescript Component Library
+                </BaseText>
+            </TextColumn>
+            <TextColumn>
+                <BaseText
+                    size='h4'
+                    margin='15px 0'
+                    shadow={1}
+                >
+                    Configured Rollup Module Bundler
+                </BaseText>
+                <DescriptionListItem>Aliasing in library was transformed at compile</DescriptionListItem>
+                <DescriptionListItem>Modules retained their typing with relative paths</DescriptionListItem>
+                <DescriptionListItem>Used Babel, Path Transformer, Styled-Components, and React</DescriptionListItem>
+            </TextColumn>
+        </SectionRow>
+    </SkillsDivContainer>
+);
 
-const StyledIcon = styled.svg`
-    width: 50px;
-    margin: auto;
-    ${({
-        theme,
-    }): string => `
+const DescriptionListItem = styled.li`
+    ${({ theme }) => `
         color: ${theme.colors.primary};
+        font-size: ${theme.font.size.h5};
     `}
+    margin-bottom: 15px;
 `;
 
 const SectionRow = styled.div`
     width: 100%;
-    ${Mixins.flex('row', 'space-between')}
+    ${Mixins.flex('column', 'flex-start', 'left')}
 `;
 const TextColumn = styled.div`
-    ${Mixins.flex('column')}
+    ${Mixins.flex('column', 'left')}
 `;
 
 const SkillsDivContainer = styled.div`
     display:grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    width:40vw;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    width:60vw;
     ${Mixins.media(
         'tablet',
         `
+        grid-template-columns: 1fr;
         width:90vw;
     `,
     )}
