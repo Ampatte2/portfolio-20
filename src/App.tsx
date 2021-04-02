@@ -14,7 +14,17 @@ const globalStyle = (theme: DefaultTheme) => `
   body {
       flex-direction:column;
       background-color: ${theme.colors.background};
-      ${Mixins.scroll}
+  }
+  iframe body {
+    &:scrollbar {
+        width: 0;
+    }
+    &::-webkit-scrollbar {
+        width:0;
+     }
+     &::-moz-scrollbar {
+         width:0;
+     }
   }
   #modal {
       z-index: 1;

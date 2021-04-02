@@ -46,8 +46,8 @@ export const Interests: React.FC = ({
                     Vendor feature to effortlessly view and process orders
                 </BaseText>
                 <DescriptionListItem>Developed in React</DescriptionListItem>
-                <DescriptionListItem>Worked with backend engineers to create a solution using existing infrastructure</DescriptionListItem>
-                <DescriptionListItem>Real time updates for group members</DescriptionListItem>
+                <DescriptionListItem>Vendors are able to start preparing orders or complete them</DescriptionListItem>
+                <DescriptionListItem>Can see the details of each order and what specific instructions are needed</DescriptionListItem>
             </TextColumn>
         </SectionRow>
         <SectionRow>

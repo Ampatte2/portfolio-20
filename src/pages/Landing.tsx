@@ -31,95 +31,33 @@ export const Landing = () => {
                 navigationLeftText='Contact'
                 navigationRightText='About'
             />
-            <FlipCard
-                height={FLIP_CARD_HEIGHT}
-                width={FLIP_CARD_WIDTH}
-                margin='20px auto'
-                backElement={<BaseText
-                    size='h1'
-                    shadow={1}
-                >
-                    Andrew Michael Patterson
-                </BaseText>}
-                frontCardColor='transparent'
-                backCardColor='transparent'
-                animationId='Developer'
-                animationTime={ANIMATION_TIME}
-                animationDelay={`${INITIAL_ANIMATION_DELAY}ms`}
-                rotationType='rotateX'
-            />
-            <FlipCard
-                height={FLIP_CARD_HEIGHT}
-                width={FLIP_CARD_WIDTH}
-                margin='20px auto'
-                frontElement={
-                    <BaseText
-                        size='h2'
-                    >
-                        Hi, I'm Andrew Patterson
-                    </BaseText>
-                }
-                backElement={<BaseText
-                    size='h2'
-                    shadow={1}
-                >
-                    Front-End Developer
-                </BaseText>}
-                frontCardColor='secondary'
-                backCardColor='transparent'
-                animationId='Developer'
-                animationTime={ANIMATION_TIME}
-                animationDelay={`${INITIAL_ANIMATION_DELAY + 200}ms`}
-                rotationType='rotateX'
-            />
-            <FlipCard
-                height={FLIP_CARD_HEIGHT}
-                width={FLIP_CARD_WIDTH}
-                margin='20px auto'
-                frontElement={
-                    <BaseText
-                        size='h2'
-                    >
-                        Card Game Enthusiast
-                    </BaseText>
-                }
-                backElement={<BaseText
-                    size='h2'
-                    shadow={1}
-                >
-                    React Typescript/Javascript
-                </BaseText>}
-                frontCardColor='secondary'
-                backCardColor='transparent'
-                animationId='Language'
-                animationTime={ANIMATION_TIME}
-                animationDelay={`${INITIAL_ANIMATION_DELAY + 1000}ms`}
-                rotationType='rotateX'
-            />
-            <FlipCard
-                height={FLIP_CARD_HEIGHT}
-                width={FLIP_CARD_WIDTH}
-                margin='20px auto'
-                frontElement={
-                    <BaseText
-                        size='h2'
-                    >
-                        Arduino Technician
-                    </BaseText>
-                }
-                backElement={<BaseText
-                    size='h2'
-                    shadow={1}
-                >
-                    UI/UX Designer
-                </BaseText>}
-                frontCardColor='secondary'
-                backCardColor='transparent'
-                animationId='Research'
-                animationTime={ANIMATION_TIME}
-                animationDelay={`${INITIAL_ANIMATION_DELAY + 2000}ms`}
-                rotationType='rotateX'
-            />
+            <BaseText
+                size='h1'
+                shadow={1}
+                margin='20px 0'
+            >
+                Andrew Michael Patterson
+            </BaseText><BaseText
+                size='h2'
+                shadow={1}
+                margin='20px 0'
+            >
+                Front-End Developer
+            </BaseText>
+            <BaseText
+                size='h2'
+                shadow={1}
+                margin='20px 0'
+            >
+                React Typescript/Javascript
+            </BaseText>
+            <BaseText
+                size='h2'
+                shadow={1}
+                margin='20px 0'
+            >
+                UI/UX Designer
+            </BaseText>
         </LandingDiv>
     );
 };

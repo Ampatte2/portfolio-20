@@ -91,6 +91,9 @@ const LandingDiv = styled.div`
     &::-webkit-scrollbar {
        width:0;
     }
+    &::-moz-scrollbar {
+        width:0;
+    }
     ${Mixins.flex('column', 'flex-start', 'center')}
     width:100vw;
     height:100vh;

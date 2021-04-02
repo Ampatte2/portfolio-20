@@ -123,12 +123,10 @@ const HiddenTextLeft = styled(BaseText)`
     transition: transform 200ms ease-in;
     height: 1rem;
     width: fit-content;
-    opacity: 0;
     ${Mixins.position('fixed', 0, 'calc(50vh - 0.5rem)', 0, 0, '5px')}
-    ${Mixins.transform([{ transformation: 'translateX', value: '-100px' }])};
+    ${Mixins.transform([{ transformation: 'translateX', value: '-150px' }])};
     ${NavigationContainerLeft}:hover & {
         ${Mixins.transform([{ transformation: 'translateX', value: '0px' }])};
-        opacity: 1;
     };
    
 `;
@@ -139,7 +137,7 @@ const HiddenTextRight = styled(BaseText)`
     height: 1rem;
     width: fit-content;
     ${Mixins.position('fixed', 0, 'calc(50vh - 0.5rem)', '5px', 0, 'auto')}
-    ${Mixins.transform([{ transformation: 'translateX', value: '100px' }])};
+    ${Mixins.transform([{ transformation: 'translateX', value: '150px' }])};
     ${NavigationContainerRight}:hover & {
         ${Mixins.transform([{ transformation: 'translateX', value: '0px' }])};
     };
