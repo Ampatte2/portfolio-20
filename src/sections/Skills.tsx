@@ -61,27 +61,25 @@ const SectionRow = styled.div`
     margin: 10px 0;
     grid-template-columns: 0.5fr 3fr;
     grid-column-gap: 10px;
-    ${({ theme }) => 
-        Mixins.media('phone', `border-bottom: 1px solid ${theme.colors.primary};`)
-}
-    
+    align-items: center;
 `;
 const TextColumn = styled.div`
     display:grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
-    
     ${Mixins.media('phone', 'grid-template-columns: 1fr 1fr;')}
 `;
 
 const SkillsDivContainer = styled.div`
     display:grid;
     grid-template-rows: 1fr 1fr 1fr;
+    grid-row-gap: 20px;
     width: 60vw;
     ${Mixins.media(
         'tablet',
         `
         width:80vw;
+        grid-row-gap: 10px;
     `,
     )}
 `;

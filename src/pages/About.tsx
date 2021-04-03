@@ -72,7 +72,7 @@ export const About : React.FC<IAboutProps> = ({
                         type='h1'
                         bold
                     >
-                        Links
+                        Links and Resume
                     </BaseText>
                     <SocialLinks hoverColor='secondary'/>
                 </SkillsContainer>

@@ -9,7 +9,7 @@ export const scroll = `
             border-radius: 999px;
         }
     }
-    -moz-scrollbar {
+    &::-moz-scrollbar {
         width: 6px;
         height: 6px;
         background-color: #efefef;

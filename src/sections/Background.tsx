@@ -4,26 +4,9 @@ import { BaseText } from '../components';
 import { icons } from '../assets/icons';
 import Mixins from '../mixins';
 
-const FIRST_SKILLS_ARRAY  = ['React', 'React-Native', 'Svelte', 'Styled-Components', 'Redux'];
-const SECOND_SKILLS_ARRAY = ['GraphQL', 'PostGresSQL', 'MySQL', 'MySQL', 'MongoDB', 'Mongoose'];
-const THIRD_SKILLS_ARRAY  = ['Node.js', 'Python', 'Docker', 'Github', 'Confluence', 'Jira'];
-
 export const Background: React.FC = ({
     ...props
 }): React.ReactElement => {
-    const renderSkillText = useCallback((skills: string[]) => {
-        const skillsArrayText = skills.map((skill) => {
-            return <BaseText
-                size='2.5vmin'
-                margin='10px 0'
-                shadow={1}
-                lineHeight={0}
-            >
-                {skill}
-            </BaseText>;
-        });
-        return skillsArrayText;
-    }, []);
     return <BackgroundDivContainer {...props}>
         <StyledImage src='archery.png' />
         <TextColumn>
@@ -73,6 +56,13 @@ const TextColumn = styled.div`
     ${Mixins.flex('column', 'left')}
     width: calc(100% - 300px);
     margin-left: 20px;
+    ${Mixins.media(
+        'phone',
+        `
+        width: 100%;
+        margin: auto;
+    `,
+    )}
 `;
 
 const BackgroundDivContainer = styled.div`
