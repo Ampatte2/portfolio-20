@@ -123,7 +123,7 @@ const SkillsDivContainer = styled.div`
         'tablet',
         `
         grid-template-columns: 1fr;
-        width:90vw;
+        width: 80vw;
     `,
     )}
 `;

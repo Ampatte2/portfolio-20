@@ -57,7 +57,7 @@ export const Background: React.FC = ({
                 shadow={1}
                 lineHeight={0}
             >
-                The combination of self taught and industry trained bred a developer ready to tackle any problem
+                Self taught and industry trained developer ready to tackle any problem
             </BaseText>
         </TextColumn>
     </BackgroundDivContainer>;
@@ -69,34 +69,26 @@ const StyledImage = styled.img`
     border-radius: 999px;
 `;
 
-const StyledIcon = styled.svg`
-    width: 50px;
-    margin: auto;
-    ${({
-        theme,
-    }): string => `
-        color: ${theme.colors.primary};
-    `}
-`;
-
-const SectionRow = styled.div`
-    display: grid;
-    align-items: center;
-    margin: 10px 0;
-    grid-template-columns: 1fr 3fr;
-`;
 const TextColumn = styled.div`
     ${Mixins.flex('column', 'left')}
-    width: 30vw;
+    width: calc(100% - 300px);
+    margin-left: 20px;
 `;
 
 const BackgroundDivContainer = styled.div`
     ${Mixins.flex('row', 'space-between')}
-    width:50vw;
+    width:60vw;
     ${Mixins.media(
         'tablet',
         `
-        width:90vw;
+        width: 80vw;
+    `,
+    )}
+    ${Mixins.media(
+        'phone',
+        `
+
+        ${Mixins.flex('column', 'center')}
     `,
     )}
 `;

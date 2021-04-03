@@ -109,5 +109,7 @@ export const ContactForm : React.FC<IContactFormProps> = ({
 };
 const ContactFormContainer = styled.div`
     ${Mixins.flex('column', 'center')}
-    width: 400px;
+    width: 20vw;
+    ${Mixins.media('tablet', 'width: 50vw;')}
+    ${Mixins.media('phone', 'width: 80vw;')}
 `;

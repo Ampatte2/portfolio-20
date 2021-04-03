@@ -24,12 +24,10 @@ export const Projects = () => {
             >
                 Loading Please Wait
             </BaseText>}
-            <IframeContainer>
-                <ProjectIframe
-                    isLoading={isLoading}
-                    src='https://mtg-builder-application.herokuapp.com/'
-                    onLoad={() => setIsLoading(false)}/>
-            </IframeContainer>
+            <ProjectIframe
+                isLoading={isLoading}
+                src='https://mtg-builder-application.herokuapp.com/'
+                onLoad={() => setIsLoading(false)}/>
             {isLoading && <LoadingBar
                 type='bars'
                 color='black'/>}
@@ -40,12 +38,6 @@ export const Projects = () => {
 interface IProjectIframeContainerProps {
    isLoading : boolean;
 }
-
-const IframeContainer = styled.div`
-    width: calc(100vw - 80px);
-    height: 85vh;
-    ${Mixins.media('tablet', ' overflow-x: hidden;')}
-`;
 
 const LoadingBar = styled(ReactLoading)`
     ${Mixins.position('fixed')}
@@ -60,13 +52,14 @@ const ProjectsDiv = styled.div`
 
 const ProjectIframe = styled.iframe<IProjectIframeContainerProps>`
     ${({ isLoading }) => isLoading ? 'z-index: -1': 'z-index: 1'};
-    width: 100%;
-    height: 100%;
+    width: calc(100% - 120px);
+    height: calc(100% - 120px);
+    ${Mixins.media('phone', `
+        height: calc(100% - 60px);
+        width: calc(100% - 60px);
+    `)}
     scrollbar-face-color: red;
     background-color: white;
-    margin: 0;
-    padding: 0;
     border: none;
     box-shadow: 1px 1px 3px 3px rgba(0, 0, 255, .2);
-    ${Mixins.scroll}
 `;

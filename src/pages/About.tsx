@@ -94,6 +94,7 @@ const LandingDiv = styled.div`
     &::-moz-scrollbar {
         width:0;
     }
+    scrollbar-width: none;
     ${Mixins.flex('column', 'flex-start', 'center')}
     width:100vw;
     height:100vh;
@@ -104,6 +105,7 @@ const PaddingDiv       = styled.div`
 `;
 const AboutMeContainer = styled.div`
     ${Mixins.flex('column', 'center')}
+    margin: auto;
     ${({ theme }) => `background-color: ${theme.colors.background};`}
 `;
 const SkillsContainer  = styled.div`

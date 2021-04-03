@@ -31,44 +31,52 @@ export const Landing = () => {
                 navigationLeftText='Contact'
                 navigationRightText='About'
             />
-            <BaseText
-                size='h1'
-                shadow={1}
-                margin='20px 0'
-            >
-                Andrew Michael Patterson
-            </BaseText><BaseText
-                size='h2'
-                shadow={1}
-                margin='20px 0'
-            >
-                Front-End Developer
-            </BaseText>
-            <BaseText
-                size='h2'
-                shadow={1}
-                margin='20px 0'
-            >
-                React Typescript/Javascript
-            </BaseText>
-            <BaseText
-                size='h2'
-                shadow={1}
-                margin='20px 0'
-            >
-                UI/UX Designer
-            </BaseText>
+            <TitleContainer>
+                <BaseText
+                    size='h1'
+                    shadow={1}
+                    margin='20px 0'
+                >
+                    Andrew Michael Patterson
+                </BaseText>
+                <BaseText
+                    size='h2'
+                    shadow={1}
+                    margin='20px 0'
+                >
+                    Front-End Developer
+                </BaseText>
+                <BaseText
+                    size='h2'
+                    shadow={1}
+                    margin='20px 0'
+                >
+                    React Typescript/Javascript
+                </BaseText>
+                <BaseText
+                    size='h2'
+                    shadow={1}
+                    margin='20px auto'
+                >
+                    UI/UX Designer
+                </BaseText>
+            </TitleContainer>
         </LandingDiv>
     );
 };
 
 const LandingDiv = styled.div`
-    ${({ theme }) => `background-color: ${theme.colors.background};`}
-    ${Mixins.flex('column','center')}
-    ${Mixins.scroll}
     position: fixed;
-    top: 0;
-    left: 0;
     width:100vw;
     height:100vh;
+`;
+
+const TitleContainer = styled.div`
+    width: 100%;
+    height: 100%;
+    ${Mixins.flex('column','center')}
+    text-align: center;
+    margin: auto;
+    ${Mixins.scroll}
+    ${Mixins.media('phone', 'width: 90%;')}
 `;

@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
-import { BaseText } from '../components';
+import { BaseText as B } from '../components';
 import { icons } from '../assets/icons';
 import Mixins from '../mixins';
 
@@ -14,7 +14,7 @@ export const Skills: React.FC = ({
     const renderSkillText = useCallback((skills: string[]) => {
         const skillsArrayText = skills.map((skill) => {
             return <BaseText
-                size='2.5vmin'
+                size='h3'
                 margin='10px 0'
                 shadow={1}
             >
@@ -53,29 +53,39 @@ const StyledIcon = styled.svg`
     }): string => `
         color: ${theme.colors.primary};
     `}
+    ${Mixins.media('phone', 'width: 35px;')}
 `;
 
 const SectionRow = styled.div`
     display: grid;
-    align-items: center;
     margin: 10px 0;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 0.5fr 3fr;
+    grid-column-gap: 10px;
+    ${({ theme }) => 
+        Mixins.media('phone', `border-bottom: 1px solid ${theme.colors.primary};`)
+}
+    
 `;
 const TextColumn = styled.div`
     display:grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 10px;
+    
+    ${Mixins.media('phone', 'grid-template-columns: 1fr 1fr;')}
 `;
 
 const SkillsDivContainer = styled.div`
     display:grid;
     grid-template-rows: 1fr 1fr 1fr;
-    width:60vw;
+    width: 60vw;
     ${Mixins.media(
         'tablet',
         `
-        width:90vw;
+        width:80vw;
     `,
     )}
+`;
+
+const BaseText = styled(B)`
+    ${Mixins.media('phone', 'font-size: 1.2rem')}
 `;
